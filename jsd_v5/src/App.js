@@ -1,10 +1,6 @@
 // IMPORT DE COMPOSANTS >>>
 import DarkVeil from './components/Backgrounds/DarkVeil/DarkVeil';
 
-// IMPORT DE PAGES >>>
-import Home from './Pages/Home.js';
-
-
 // APPEL DE BACKGROUND GLOBAL + PAGES
 function App() {
   return (
@@ -14,6 +10,22 @@ function App() {
       
       {/* Contenu de la page */}
       <Home />
+    </>
+  );
+}
+
+// APPEL DE HEADER.JSX
+import Header from './components/Header';
+import Home from './Pages/Home';
+import Work from './Pages/Work';
+import Services from './Pages/Services';
+import Contact from './Pages/Contact';
+
+function App() {
+  return (
+    <>
+      <Header />  {/* Toujours visible sur toutes les pages */}
+      <Home />    {/* Ou ton système de routing */}
     </>
   );
 }
