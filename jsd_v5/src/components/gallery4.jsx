@@ -1,61 +1,55 @@
-"use client";;
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import { Button } from "@/components/ui/button";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { Button } from "./ui/button";
+import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
 
 const data = [
   {
-    id: "shadcn-ui",
-    title: "shadcn/ui: Building a Modern Component Library",
+    id: "projet-1",
+    title: "Maison Contemporaine",
     description:
-      "Explore how shadcn/ui revolutionized React component libraries by providing a unique approach to component distribution and customization, making it easier for developers to build beautiful, accessible applications.",
-    href: "https://ui.shadcn.com",
-    image:
-      "https://images.unsplash.com/photo-1551250928-243dc937c49d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2NDI3NzN8MHwxfGFsbHwxMjN8fHx8fHwyfHwxNzIzODA2OTM5fA&ixlib=rb-4.0.3&q=80&w=1080",
+      "Visualisation 3D d'une maison contemporaine avec des finitions haut de gamme. Architecture moderne intégrant des matériaux nobles et des espaces lumineux.",
+    href: "#",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
   },
   {
-    id: "tailwind",
-    title: "Tailwind CSS: The Utility-First Revolution",
+    id: "projet-2",
+    title: "Rénovation d'Intérieur",
     description:
-      "Discover how Tailwind CSS transformed the way developers style their applications, offering a utility-first approach that speeds up development while maintaining complete design flexibility.",
-    href: "https://tailwindcss.com",
-    image:
-      "https://images.unsplash.com/photo-1551250928-e4a05afaed1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2NDI3NzN8MHwxfGFsbHwxMjR8fHx8fHwyfHwxNzIzODA2OTM5fA&ixlib=rb-4.0.3&q=80&w=1080",
+      "Design d'intérieur moderne avec une attention particulière portée aux détails et à l'harmonie des espaces.",
+    href: "#",
+    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800",
   },
   {
-    id: "astro",
-    title: "Astro: The All-in-One Web Framework",
+    id: "projet-3",
+    title: "Stand d'Exposition",
     description:
-      "Learn how Astro's innovative 'Islands Architecture' and zero-JS-by-default approach is helping developers build faster websites while maintaining rich interactivity where needed.",
-    href: "https://astro.build",
-    image:
-      "https://images.unsplash.com/photo-1536735561749-fc87494598cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2NDI3NzN8MHwxfGFsbHwxNzd8fHx8fHwyfHwxNzIzNjM0NDc0fA&ixlib=rb-4.0.3&q=80&w=1080",
+      "Conception et visualisation 3D de stands pour salons professionnels. Designs impactants qui valorisent l'identité de marque.",
+    href: "#",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800",
   },
   {
-    id: "react",
-    title: "React: Pioneering Component-Based UI",
+    id: "projet-4",
+    title: "Architecture Commerciale",
     description:
-      "See how React continues to shape modern web development with its component-based architecture, enabling developers to build complex user interfaces with reusable, maintainable code.",
-    href: "https://react.dev",
-    image:
-      "https://images.unsplash.com/photo-1548324215-9133768e4094?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2NDI3NzN8MHwxfGFsbHwxMzF8fHx8fHwyfHwxNzIzNDM1MzA1fA&ixlib=rb-4.0.3&q=80&w=1080",
+      "Projets architecturaux pour espaces commerciaux. Solutions innovantes alliant esthétique et fonctionnalité.",
+    href: "#",
+    image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800",
   },
   {
-    id: "nextjs",
-    title: "Next.js: The React Framework for Production",
+    id: "projet-5",
+    title: "Design d'Espace",
     description:
-      "Explore how Next.js has become the go-to framework for building full-stack React applications, offering features like server components, file-based routing, and automatic optimization.",
-    href: "https://nextjs.org",
-    image:
-      "https://images.unsplash.com/photo-1550070881-a5d71eda5800?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2NDI3NzN8MHwxfGFsbHwxMjV8fHx8fHwyfHwxNzIzNDM1Mjk4fA&ixlib=rb-4.0.3&q=80&w=1080",
+      "Aménagement et design d'espaces de travail modernes. Création d'environnements inspirants qui favorisent la productivité.",
+    href: "#",
+    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800",
   },
 ];
 
 const Gallery4 = ({
-  title = "Case Studies",
-  description = "Discover how leading companies and developers are leveraging modern web technologies to build exceptional digital experiences. These case studies showcase real-world applications and success stories.",
+  title = "Nos Réalisations",
+  description = "Découvrez nos projets de visualisation 3D et design architectural. Des réalisations qui allient créativité, technique et savoir-faire.",
   items = data
 }) => {
   const [carouselApi, setCarouselApi] = useState();
@@ -81,13 +75,13 @@ const Gallery4 = ({
 
   return (
     <section className="py-32">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4">
         <div className="mb-8 flex items-end justify-between md:mb-14 lg:mb-16">
           <div className="flex flex-col gap-4">
-            <h2 className="text-3xl font-medium md:text-4xl lg:text-5xl">
+            <h2 className="text-3xl font-medium md:text-4xl lg:text-5xl" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
               {title}
             </h2>
-            <p className="max-w-lg text-muted-foreground">{description}</p>
+            <p className="max-w-lg" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>{description}</p>
           </div>
           <div className="hidden shrink-0 gap-2 md:flex">
             <Button
@@ -98,7 +92,7 @@ const Gallery4 = ({
               }}
               disabled={!canScrollPrev}
               className="disabled:pointer-events-auto">
-              <ArrowLeft className="size-5" />
+              <ArrowLeft className="w-5 h-5" />
             </Button>
             <Button
               size="icon"
@@ -108,7 +102,7 @@ const Gallery4 = ({
               }}
               disabled={!canScrollNext}
               className="disabled:pointer-events-auto">
-              <ArrowRight className="size-5" />
+              <ArrowRight className="w-5 h-5" />
             </Button>
           </div>
         </div>
@@ -123,30 +117,26 @@ const Gallery4 = ({
               },
             },
           }}>
-          <CarouselContent
-            className="ml-0 2xl:ml-[max(8rem,calc(50vw-700px))] 2xl:mr-[max(0rem,calc(50vw-700px))]">
+          <CarouselContent className="ml-0">
             {items.map((item) => (
-              <CarouselItem key={item.id} className="max-w-[320px] pl-[20px] lg:max-w-[360px]">
-                <a href={item.href} className="group rounded-xl">
-                  <div
-                    className="group relative h-full min-h-[27rem] max-w-full overflow-hidden rounded-xl md:aspect-[5/4] lg:aspect-[16/9]">
+              <CarouselItem key={item.id} className="max-w-[420px] pl-[20px] lg:max-w-[480px]">
+                <a href={item.href} className="group rounded-xl block">
+                  <div className="group relative overflow-hidden rounded-xl aspect-[16/9]">
                     <img
                       src={item.image}
                       alt={item.title}
                       className="absolute h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105" />
-                    <div
-                      className="absolute inset-0 h-full bg-[linear-gradient(hsl(var(--primary)/0),hsl(var(--primary)/0.4),hsl(var(--primary)/0.8)_100%)] mix-blend-multiply" />
-                    <div
-                      className="absolute inset-x-0 bottom-0 flex flex-col items-start p-6 text-primary-foreground md:p-8">
-                      <div className="mb-2 pt-4 text-xl font-semibold md:mb-3 md:pt-4 lg:pt-4">
+                    <div className="absolute inset-0 h-full bg-gradient-to-b from-transparent via-black/40 to-black/80" />
+                    <div className="absolute inset-x-0 bottom-0 flex flex-col items-start p-6 text-white md:p-8">
+                      <div className="mb-2 pt-4 text-xl font-semibold md:mb-3">
                         {item.title}
                       </div>
-                      <div className="mb-8 line-clamp-2 md:mb-12 lg:mb-9">
+                      <div className="mb-8 line-clamp-2 md:mb-12">
                         {item.description}
                       </div>
                       <div className="flex items-center text-sm">
-                        Read more{" "}
-                        <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
+                        Voir plus{" "}
+                        <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                       </div>
                     </div>
                   </div>
@@ -160,10 +150,10 @@ const Gallery4 = ({
             <button
               key={index}
               className={`h-2 w-2 rounded-full transition-colors ${
-                currentSlide === index ? "bg-primary" : "bg-primary/20"
+                currentSlide === index ? "bg-black" : "bg-black/20"
               }`}
               onClick={() => carouselApi?.scrollTo(index)}
-              aria-label={`Go to slide ${index + 1}`} />
+              aria-label={`Aller à la diapositive ${index + 1}`} />
           ))}
         </div>
       </div>
