@@ -25,7 +25,8 @@ const Header = ({ theme = 'dark' }) => {
                 src={logo} 
                 alt="Logo JSD"
                 style={{
-                  filter: isDark ? 'none' : 'brightness(0)'
+                  filter: isDark ? 'none' : 'brightness(0) opacity(0.85)',
+                  transition: 'filter 0.3s ease'
                 }}
               />
             </a>
@@ -33,7 +34,10 @@ const Header = ({ theme = 'dark' }) => {
               <li>
                 <a 
                   href="/work"
-                  style={{ color: isDark ? 'white' : 'black' }}
+                  style={{ 
+                    color: isDark ? 'white' : 'rgba(0, 0, 0, 0.85)',
+                    transition: 'color 0.3s ease'
+                  }}
                 >
                   Réalisations
                 </a>
@@ -41,7 +45,10 @@ const Header = ({ theme = 'dark' }) => {
               <li>
                 <a 
                   href="/services"
-                  style={{ color: isDark ? 'white' : 'black' }}
+                  style={{ 
+                    color: isDark ? 'white' : 'rgba(0, 0, 0, 0.85)',
+                    transition: 'color 0.3s ease'
+                  }}
                 >
                   Services
                 </a>
@@ -49,7 +56,10 @@ const Header = ({ theme = 'dark' }) => {
               <li>
                 <a 
                   href="/contact"
-                  style={{ color: isDark ? 'white' : 'black' }}
+                  style={{ 
+                    color: isDark ? 'white' : 'rgba(0, 0, 0, 0.85)',
+                    transition: 'color 0.3s ease'
+                  }}
                 >
                   Contact
                 </a>

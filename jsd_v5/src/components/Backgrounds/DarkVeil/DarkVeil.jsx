@@ -71,12 +71,20 @@ void mainImage(out vec4 fragColor,in vec2 fragCoord){
 void main(){
     vec4 col;mainImage(col,gl_FragCoord.xy);
     col.rgb=hueShiftRGB(col.rgb,uHueShift);
+    
+    // INVERSION DES COULEURS : noir devient blanc
+    col.rgb = 1.0 - col.rgb;
+    
+    // Ajout de 5% de noir (réduction de la luminosité)
+    col.rgb *= 0.95;
+    
     float scanline_val=sin(gl_FragCoord.y*uScanFreq)*0.5+0.5;
     col.rgb*=1.-(scanline_val*scanline_val)*uScan;
     col.rgb+=(rand(gl_FragCoord.xy+uTime)-0.5)*uNoise;
     gl_FragColor=vec4(clamp(col.rgb,0.0,1.0),1.0);
 }
 `;
+
 
 export default function DarkVeil({
   hueShift = 0,
