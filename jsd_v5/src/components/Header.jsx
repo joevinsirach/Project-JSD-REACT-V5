@@ -2,19 +2,10 @@ import React from 'react';
 import GlassSurface from './GlassSurface/GlassSurface';
 import './Header.css';
 import logo from '../ressources1/Logo-JSD-BlancV2.png';
-import { useScrollContext } from '../context/ScrollContext';
 
-const Header = () => {
-  const { scrollProgress } = useScrollContext();
+const Header = ({ theme = 'dark' }) => {
+  const isDark = theme === 'dark';
   
-  // Transition progressive de blanc (0) à noir (1)
-  // Interpolation RGB : blanc (255,255,255) -> noir (0,0,0)
-  const colorValue = Math.round(255 * (1 - scrollProgress));
-  const textColor = `rgb(${colorValue}, ${colorValue}, ${colorValue})`;
-  
-  // Filtre pour le logo : de brightness(1) à brightness(0)
-  const logoFilter = `brightness(${1 - scrollProgress})`;
-
   return (
     <header className="header-wrapper">
       <div className="header-container">
@@ -34,8 +25,7 @@ const Header = () => {
                 src={logo} 
                 alt="Logo JSD"
                 style={{
-                  filter: logoFilter,
-                  transition: 'filter 0.1s linear'
+                  filter: isDark ? 'none' : 'brightness(0)'
                 }}
               />
             </a>
@@ -43,10 +33,7 @@ const Header = () => {
               <li>
                 <a 
                   href="/work"
-                  style={{ 
-                    color: textColor, 
-                    transition: 'color 0.1s linear' 
-                  }}
+                  style={{ color: isDark ? 'white' : 'black' }}
                 >
                   Réalisations
                 </a>
@@ -54,10 +41,7 @@ const Header = () => {
               <li>
                 <a 
                   href="/services"
-                  style={{ 
-                    color: textColor, 
-                    transition: 'color 0.1s linear' 
-                  }}
+                  style={{ color: isDark ? 'white' : 'black' }}
                 >
                   Services
                 </a>
@@ -65,10 +49,7 @@ const Header = () => {
               <li>
                 <a 
                   href="/contact"
-                  style={{ 
-                    color: textColor, 
-                    transition: 'color 0.1s linear' 
-                  }}
+                  style={{ color: isDark ? 'white' : 'black' }}
                 >
                   Contact
                 </a>

@@ -1,15 +1,14 @@
 import DarkVeil from './components/backgrounds/DarkVeil/DarkVeil';
 import Header from './components/Header';
 import Home from './pages/Home';
-import { ScrollProvider } from './context/ScrollContext';
 
 function App() {
   return (
-    <ScrollProvider>
+    <>
       <DarkVeil />
-      <Header />
+      <Header theme="light" />
       <Home />
-    </ScrollProvider>
+    </>
   );
 }
 
