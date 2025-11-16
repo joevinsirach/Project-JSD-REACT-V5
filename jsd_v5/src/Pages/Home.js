@@ -1,10 +1,8 @@
-import DarkVeil from '../components/Backgrounds/DarkVeil';
-
 function Home() {
   return (
     <div>
-      <DarkVeil />
-      {/* autre contenu */}
+      <h1>Bienvenue</h1>
+      {/* Ton contenu ici */}
     </div>
   );
 }

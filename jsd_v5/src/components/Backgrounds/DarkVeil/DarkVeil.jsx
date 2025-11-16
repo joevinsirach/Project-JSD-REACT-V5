@@ -147,5 +147,32 @@ export default function DarkVeil({
       window.removeEventListener('resize', resize);
     };
   }, [hueShift, noiseIntensity, scanlineIntensity, speed, scanlineFrequency, warpAmount, resolutionScale]);
-  return <canvas ref={ref} className="darkveil-canvas" />;
+  return (
+  <div style={{
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    width: '100vw',
+    height: '100vh',
+    zIndex: -1,
+    pointerEvents: 'none',
+    overflow: 'hidden'
+  }}>
+    <canvas 
+      ref={ref} 
+      className="darkveil-canvas"
+      style={{
+        width: '100%',
+        height: '100%',
+        minWidth: '100vh',  // Force une largeur minimum égale à la hauteur
+        minHeight: '100vh',
+        position: 'absolute',
+        left: '50%',
+        top: '50%',
+        transform: 'translate(-50%, -50%)'  // Centre le canvas
+      }}
+    />
+  </div>
+);
+
 }
