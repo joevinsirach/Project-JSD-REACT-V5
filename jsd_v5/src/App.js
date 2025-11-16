@@ -1,34 +1,16 @@
-// IMPORT DE COMPOSANTS >>>
-import DarkVeil from './components/Backgrounds/DarkVeil/DarkVeil';
-
-// APPEL DE BACKGROUND GLOBAL + PAGES
-function App() {
-  return (
-    <>
-      {/* Background global pour toutes les pages */}
-      <DarkVeil />
-      
-      {/* Contenu de la page */}
-      <Home />
-    </>
-  );
-}
-
-// APPEL DE HEADER.JSX
+import DarkVeil from './components/backgrounds/DarkVeil/DarkVeil';
 import Header from './components/Header';
-import Home from './Pages/Home';
-import Work from './Pages/Work';
-import Services from './Pages/Services';
-import Contact from './Pages/Contact';
+import Home from './pages/Home';
+import { ScrollProvider } from './context/ScrollContext';
 
 function App() {
   return (
-    <>
-      <Header />  {/* Toujours visible sur toutes les pages */}
-      <Home />    {/* Ou ton système de routing */}
-    </>
+    <ScrollProvider>
+      <DarkVeil />
+      <Header />
+      <Home />
+    </ScrollProvider>
   );
 }
-
 
 export default App;
