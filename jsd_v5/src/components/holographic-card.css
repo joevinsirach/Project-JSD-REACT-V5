@@ -1,0 +1,64 @@
+.component-card {
+  position: relative;
+  width: 100%;
+  max-width: 700px; /* carte plus large */
+  margin: 0 auto;
+  border-radius: 1rem;
+
+  /* dégradé bleu clair avec touche violine */
+  background: linear-gradient(135deg, #70bfff75 0%, #8a70ff 70%);
+  
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  color: white;
+  padding: 2.5rem 3rem;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  user-select: none;
+}
+
+.logo-container img {
+  max-height: 112px; /* 28*4px */
+  display: block;
+}
+
+.holo-content {
+  position: relative;
+  z-index: 1;
+  text-align: right;
+}
+
+.component-title {
+  font-weight: 700;
+  font-size: 1.75rem; /* plus grand */
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.025em;
+}
+
+.component-description {
+  font-size: 1rem;
+  color: #d1d5db; /* gris clair */
+  line-height: 1.5;
+}
+
+.contact-info div {
+  margin-top: 0.25rem;
+}
+
+.holo-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--bg-x, 50%) var(--bg-y, 50%), rgba(255,255,255,0.25), transparent 70%);
+  pointer-events: none;
+  border-radius: 1rem;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.component-card:hover .holo-glow {
+  opacity: 1;
+}
