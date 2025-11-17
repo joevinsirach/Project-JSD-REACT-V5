@@ -1,10 +1,10 @@
+import React, { useState, useEffect } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useEffect, useState } from "react";
 
 import { Button } from "./ui/button";
 import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
 
-// Import des images depuis ressources1
+// Import des images
 import buenoFlag from '../ressources1/BuenoV3_FACEFLAG.webp';
 import cam1 from '../ressources1/Cam1HQ.webp';
 import casalini from '../ressources1/CasaliniRenderV3.webp';
@@ -44,8 +44,7 @@ const data = [
   {
     id: "projet-3",
     title: "Design Produit",
-    description:
-      "Rendu de mobilier design.",
+    description: "Rendu de mobilier design.",
     href: "#",
     image: chaises,
   },
@@ -76,16 +75,14 @@ const data = [
   {
     id: "projet-7",
     title: "Design Produit",
-    description:
-      "Modélisation et rendu 3D pour un industriel chinois.",
+    description: "Modélisation et rendu 3D pour un industriel chinois.",
     href: "#",
     image: lampe,
   },
   {
     id: "projet-8",
     title: "Visualisation 3D Intérieur",
-    description:
-      "Architecture intérieur et Rendu 3D.",
+    description: "Architecture intérieur et Rendu 3D.",
     href: "#",
     image: cam1,
   },
@@ -100,8 +97,7 @@ const data = [
   {
     id: "projet-10",
     title: "Kinder Bueno",
-    description:
-      "Conception 3D d'un stand événementiel pour Kinder.",
+    description: "Conception 3D d'un stand événementiel pour Kinder.",
     href: "#",
     image: faceBasket,
   },
@@ -132,8 +128,7 @@ const data = [
   {
     id: "projet-14",
     title: "JBL",
-    description:
-      "Conception 3D d'un stand événementiel pour JBL.",
+    description: "Conception 3D d'un stand événementiel pour JBL.",
     href: "#",
     image: postProd,
   },
@@ -148,8 +143,7 @@ const data = [
   {
     id: "projet-16",
     title: "Kinder Bueno",
-    description:
-      "Conception 3D d'un stand événementiel pour Kinder.",
+    description: "Conception 3D d'un stand événementiel pour Kinder.",
     href: "#",
     image: buenoFlag,
   },
@@ -182,9 +176,7 @@ const Gallery4 = ({
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    if (!carouselApi) {
-      return;
-    }
+    if (!carouselApi) return;
     const updateSelection = () => {
       setCanScrollPrev(carouselApi.canScrollPrev());
       setCanScrollNext(carouselApi.canScrollNext());
@@ -198,40 +190,38 @@ const Gallery4 = ({
   }, [carouselApi]);
 
   return (
-    <section className="py-32">
+    <section className="mx-auto max-w-7xl px-4 py-32">
       <div className="container mx-auto px-4">
-        <div className="mb-8 flex items-end justify-between md:mb-14 lg:mb-16">
-          <div className="flex flex-col gap-4">
+        <div className="mb-8 flex flex-col md:flex-row md:items-center md:justify-between md:mb-14 lg:mb-16">
+          <div className="max-w-lg text-left flex flex-col gap-4">
             <h2 className="text-3xl font-medium md:text-4xl lg:text-5xl" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
               {title}
             </h2>
-            <p className="max-w-lg" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>{description}</p>
+            <p style={{ color: 'rgba(0, 0, 0, 0.8)' }}>{description}</p>
           </div>
-          <div className="hidden shrink-0 gap-2 md:flex">
+          <div className="hidden md:flex gap-2 shrink-0">
             <Button
               size="icon"
               variant="ghost"
-              onClick={() => {
-                carouselApi?.scrollPrev();
-              }}
+              onClick={() => carouselApi?.scrollPrev()}
               disabled={!canScrollPrev}
-              className="disabled:pointer-events-auto">
+              className="disabled:pointer-events-auto"
+            >
               <ArrowLeft className="w-5 h-5" />
             </Button>
             <Button
               size="icon"
               variant="ghost"
-              onClick={() => {
-                carouselApi?.scrollNext();
-              }}
+              onClick={() => carouselApi?.scrollNext()}
               disabled={!canScrollNext}
-              className="disabled:pointer-events-auto">
+              className="disabled:pointer-events-auto"
+            >
               <ArrowRight className="w-5 h-5" />
             </Button>
           </div>
         </div>
       </div>
-      <div className="w-full">
+      <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw]">
         <Carousel
           setApi={setCarouselApi}
           opts={{
@@ -240,7 +230,8 @@ const Gallery4 = ({
                 dragFree: true,
               },
             },
-          }}>
+          }}
+        >
           <CarouselContent className="ml-0 justify-start">
             {items.map((item) => (
               <CarouselItem key={item.id} className="max-w-[420px] pl-[20px] lg:max-w-[480px]">
@@ -249,7 +240,8 @@ const Gallery4 = ({
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="absolute h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105" />
+                      className="absolute h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                    />
                     <div className="absolute inset-0 h-full bg-gradient-to-b from-transparent via-black/40 to-black/80" />
                     <div className="absolute inset-x-0 bottom-0 flex flex-col items-start p-6 text-white md:p-8">
                       <div className="mb-2 pt-4 text-xl font-semibold md:mb-3">

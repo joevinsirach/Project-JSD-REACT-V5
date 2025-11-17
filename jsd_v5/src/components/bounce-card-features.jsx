@@ -9,51 +9,55 @@ import cam from '../ressources1/Cam1HQ.webp';
 
 export const BouncyCardsFeatures = () => {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-12 text-slate-800">
-      <div className="mb-8 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end md:px-8">
-        <h2 className="max-w-lg text-3xl font-medium md:text-4xl lg:text-5xl">
-          Vous avez une idée ?<br />
-          <span className="font-ubuntu font-black bg-gradient-to-br from-[#667eea] to-[#764ba2] bg-clip-text text-transparent">
-            on a le design
-          </span>
-        </h2>
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="whitespace-nowrap rounded-lg bg-slate-900 px-4 py-2 font-medium text-white shadow-xl transition-colors hover:bg-slate-700"
-        >
-          Learn more
-        </motion.button>
-      </div>
+    <section className="mx-auto max-w-7xl px-4 py-32">
+      <div className="container mx-auto px-4">
+        <div className="mb-8 flex flex-col md:flex-row md:items-center md:justify-between md:mb-14 lg:mb-16">
+          <div className="max-w-lg text-left flex flex-col gap-4">
+            <h2 className="text-3xl font-medium md:text-4xl lg:text-5xl">
+              Vous avez une idée ?<br />
+              <span className="font-ubuntu font-black bg-gradient-to-br from-[#667eea] to-[#764ba2] bg-clip-text text-transparent">
+                on a le design
+              </span>
+            </h2>
+          </div>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="rounded-lg bg-slate-900 px-4 py-2 font-medium text-white shadow-xl transition-colors hover:bg-slate-700 mt-4 self-start max-w-max"
+          >
+            Tout voir
+          </motion.button>
+        </div>
 
-      <div className="mb-4 grid grid-cols-12 gap-4">
-        <BounceCard className="col-span-12 md:col-span-4">
-          <CardTitle>Architecture</CardTitle>
-          <div className="absolute bottom-0 left-4 right-4 top-16 translate-y-8 rounded-t-2xl overflow-hidden transition-transform duration-[250ms] group-hover:translate-y-4 group-hover:rotate-[2deg]">
-            <img src={maisonMorreale} alt="Visualisation 3D Architecture" className="w-full h-full object-cover" />
-          </div>
-        </BounceCard>
-        <BounceCard className="col-span-12 md:col-span-8">
-          <CardTitle>Stand Promotionnel</CardTitle>
-          <div className="absolute bottom-0 left-4 right-4 top-16 translate-y-8 rounded-t-2xl overflow-hidden transition-transform duration-[250ms] group-hover:translate-y-4 group-hover:rotate-[2deg]">
-            <img src={plan} alt="Stand événementiel Moet Chandon" className="w-full h-full object-cover" />
-          </div>
-        </BounceCard>
-      </div>
+        <div className="mb-4 grid grid-cols-12 gap-4">
+          <BounceCard className="col-span-12 md:col-span-4">
+            <CardTitle>Architecture</CardTitle>
+            <div className="absolute bottom-0 left-4 right-4 top-16 translate-y-8 rounded-t-2xl overflow-hidden transition-transform duration-[250ms] group-hover:translate-y-4 group-hover:rotate-[2deg]">
+              <img src={maisonMorreale} alt="Visualisation 3D Architecture" className="w-full h-full object-cover" />
+            </div>
+          </BounceCard>
+          <BounceCard className="col-span-12 md:col-span-8">
+            <CardTitle>Stand Promotionnel</CardTitle>
+            <div className="absolute bottom-0 left-4 right-4 top-16 translate-y-8 rounded-t-2xl overflow-hidden transition-transform duration-[250ms] group-hover:translate-y-4 group-hover:rotate-[2deg]">
+              <img src={plan} alt="Stand événementiel Moet Chandon" className="w-full h-full object-cover" />
+            </div>
+          </BounceCard>
+        </div>
 
-      <div className="grid grid-cols-12 gap-4">
-        <BounceCard className="col-span-12 md:col-span-8">
-          <CardTitle>Product Design</CardTitle>
-          <div className="absolute bottom-0 left-4 right-4 top-16 translate-y-8 rounded-t-2xl overflow-hidden transition-transform duration-[250ms] group-hover:translate-y-4 group-hover:rotate-[2deg]">
-            <img src={piq} alt="Visualisation produit PIQ in" className="w-full h-full object-cover" />
-          </div>
-        </BounceCard>
-        <BounceCard className="col-span-12 md:col-span-4">
-          <CardTitle>Intérieur</CardTitle>
-          <div className="absolute bottom-0 left-4 right-4 top-16 translate-y-8 rounded-t-2xl overflow-hidden transition-transform duration-[250ms] group-hover:translate-y-4 group-hover:rotate-[2deg]">
-            <img src={cam} alt="Architecture intérieur rendu 3D" className="w-full h-full object-cover" />
-          </div>
-        </BounceCard>
+        <div className="grid grid-cols-12 gap-4">
+          <BounceCard className="col-span-12 md:col-span-8">
+            <CardTitle>Product Design</CardTitle>
+            <div className="absolute bottom-0 left-4 right-4 top-16 translate-y-8 rounded-t-2xl overflow-hidden transition-transform duration-[250ms] group-hover:translate-y-4 group-hover:rotate-[2deg]">
+              <img src={piq} alt="Visualisation produit PIQ in" className="w-full h-full object-cover" />
+            </div>
+          </BounceCard>
+          <BounceCard className="col-span-12 md:col-span-4">
+            <CardTitle>Intérieur</CardTitle>
+            <div className="absolute bottom-0 left-4 right-4 top-16 translate-y-8 rounded-t-2xl overflow-hidden transition-transform duration-[250ms] group-hover:translate-y-4 group-hover:rotate-[2deg]">
+              <img src={cam} alt="Architecture intérieur rendu 3D" className="w-full h-full object-cover" />
+            </div>
+          </BounceCard>
+        </div>
       </div>
     </section>
   );
