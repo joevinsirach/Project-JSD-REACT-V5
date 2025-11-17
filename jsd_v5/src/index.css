@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,14 +19,13 @@
     --ring: 0 0% 3.9%;
     --input: 0 0% 89.8%;
   }
+  
+  body {
+    font-family: 'Ubuntu', sans-serif;
+    color: rgba(0, 0, 0, 0.8);
+  }
 }
 
-/* Couleur de texte par défaut */
-body {
-  color: rgba(0, 0, 0, 0.8);
-}
-
-/* Classe utilitaire */
 .text-black-80 {
   color: rgba(0, 0, 0, 0.8);
 }

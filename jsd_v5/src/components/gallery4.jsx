@@ -4,51 +4,175 @@ import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
 
+// Import des images depuis ressources1
+import buenoFlag from '../ressources1/BuenoV3_FACEFLAG.webp';
+import cam1 from '../ressources1/Cam1HQ.webp';
+import casalini from '../ressources1/CasaliniRenderV3.webp';
+import faceBasket from '../ressources1/face-basket.webp';
+import lampe from '../ressources1/Lampe3.webp';
+import maisonMorreale from '../ressources1/MaisonMORREALE_V7.webp';
+import maxicoffee from '../ressources1/Maxicoffee_Nouveau_Corner_H1V2.webp';
+import sephora from '../ressources1/MiseEnSituationSephoraV8.webp';
+import chandon from '../ressources1/NORMAL_CHANDON_V1.webp';
+import piq from '../ressources1/PIQin.1.webp';
+import plan from '../ressources1/plan_01_V2_PP.webp';
+import postProd from '../ressources1/PostProd5.webp';
+import ppRendu from '../ressources1/PP_RenduZoomVenteV1.webp';
+import standBat from '../ressources1/RenderPP_Left_StandBAT_Photocall_V5.2_Sarah072024.webp';
+import chaises from '../ressources1/Rendu Chaises x Steph le Sushi.2pp.webp';
+import stand2 from '../ressources1/Stand2_V5.webp';
+import v3Jour from '../ressources1/V3_jour.webp';
+import glorifier from '../ressources1/V4-Products_1GLORIFIER.webp';
+
 const data = [
   {
     id: "projet-1",
-    title: "Maison Contemporaine",
+    title: "Sephora",
     description:
-      "Visualisation 3D d'une maison contemporaine avec des finitions haut de gamme. Architecture moderne intégrant des matériaux nobles et des espaces lumineux.",
+      "Intégration réaliste de produits cosmétiques Sephora dans un environnement lifestyle élégant.",
     href: "#",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
+    image: sephora,
   },
   {
     id: "projet-2",
-    title: "Rénovation d'Intérieur",
+    title: "Visualisation 3D Archi",
     description:
-      "Design d'intérieur moderne avec une attention particulière portée aux détails et à l'harmonie des espaces.",
+      "Visualisation 3D pour un cabinet d'architecture pour particulier.",
     href: "#",
-    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800",
+    image: casalini,
   },
   {
     id: "projet-3",
-    title: "Stand d'Exposition",
+    title: "Design Produit",
     description:
-      "Conception et visualisation 3D de stands pour salons professionnels. Designs impactants qui valorisent l'identité de marque.",
+      "Rendu de mobilier design.",
     href: "#",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800",
+    image: chaises,
   },
   {
     id: "projet-4",
-    title: "Architecture Commerciale",
+    title: "Moet / Chandon",
     description:
-      "Projets architecturaux pour espaces commerciaux. Solutions innovantes alliant esthétique et fonctionnalité.",
+      "Conception 3D d'un stand événementiel pour Moet / Chandon",
     href: "#",
-    image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800",
+    image: plan,
   },
   {
     id: "projet-5",
-    title: "Design d'Espace",
+    title: "Maxicoffee",
     description:
-      "Aménagement et design d'espaces de travail modernes. Création d'environnements inspirants qui favorisent la productivité.",
+      "Aménagement d'un corner café moderne pour point de vente. Design fonctionnel et attractif.",
     href: "#",
-    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800",
+    image: maxicoffee,
+  },
+  {
+    id: "projet-6",
+    title: "VUSE / VELO",
+    description:
+      "Conception 3D d'un stand événementiel pour VUSE / VELO",
+    href: "#",
+    image: stand2,
+  },
+  {
+    id: "projet-7",
+    title: "Design Produit",
+    description:
+      "Modélisation et rendu 3D pour un industriel chinois.",
+    href: "#",
+    image: lampe,
+  },
+  {
+    id: "projet-8",
+    title: "Visualisation 3D Intérieur",
+    description:
+      "Architecture intérieur et Rendu 3D.",
+    href: "#",
+    image: cam1,
+  },
+  {
+    id: "projet-9",
+    title: "VUSE / VELO",
+    description:
+      "Mise en scène publicitaire de produits avec éclairage intégré.",
+    href: "#",
+    image: glorifier,
+  },
+  {
+    id: "projet-10",
+    title: "Kinder Bueno",
+    description:
+      "Conception 3D d'un stand événementiel pour Kinder.",
+    href: "#",
+    image: faceBasket,
+  },
+  {
+    id: "projet-11",
+    title: "Visualisation 3D Archi",
+    description:
+      "Visualisation architecturale extérieure d'une maison individuelle contemporaine avec environnement paysager.",
+    href: "#",
+    image: maisonMorreale,
+  },
+  {
+    id: "projet-12",
+    title: "VUSE / VELO",
+    description:
+      "Conception 3D d'un stand événementiel pour VUSE / VELO",
+    href: "#",
+    image: standBat,
+  },
+  {
+    id: "projet-13",
+    title: "PIQ in",
+    description:
+      "Visualisation 3D publicitaires pour produit destiné au marché japonais.",
+    href: "#",
+    image: piq,
+  },
+  {
+    id: "projet-14",
+    title: "JBL",
+    description:
+      "Conception 3D d'un stand événementiel pour JBL.",
+    href: "#",
+    image: postProd,
+  },
+  {
+    id: "projet-15",
+    title: "Moet / Chandon",
+    description:
+      "Conception 3D d'un stand événementiel pour Moet / Chandon",
+    href: "#",
+    image: v3Jour,
+  },
+  {
+    id: "projet-16",
+    title: "Kinder Bueno",
+    description:
+      "Conception 3D d'un stand événementiel pour Kinder.",
+    href: "#",
+    image: buenoFlag,
+  },
+  {
+    id: "projet-17",
+    title: "VUSE / VELO",
+    description:
+      "Visualisation détaillée pour support de vente immobilier avec mise en valeur des espaces.",
+    href: "#",
+    image: ppRendu,
+  },
+  {
+    id: "projet-18",
+    title: "Moet / Chandon",
+    description:
+      "Conception 3D d'un stand événementiel pour Moet / Chandon",
+    href: "#",
+    image: chandon,
   },
 ];
 
 const Gallery4 = ({
-  title = "Nos Réalisations",
+  title = "Réalisations Récentes",
   description = "Découvrez nos projets de visualisation 3D et design architectural. Des réalisations qui allient créativité, technique et savoir-faire.",
   items = data
 }) => {
@@ -117,7 +241,7 @@ const Gallery4 = ({
               },
             },
           }}>
-          <CarouselContent className="ml-0 justify-center">
+          <CarouselContent className="ml-0 justify-start">
             {items.map((item) => (
               <CarouselItem key={item.id} className="max-w-[420px] pl-[20px] lg:max-w-[480px]">
                 <a href={item.href} className="group rounded-xl block">
