@@ -1,11 +1,12 @@
 import { Gallery4 } from '../components/gallery4';
 import { Typewriter } from '../components/ui/typewriter';
+import { BouncyCardsFeatures } from '../components/bounce-card-features';
 
 function Home() {
   return (
     <div>
       {/* Section Hero avec Typewriter */}
-      <div className="flex flex-col justify-start items-center text-center gap-8 p-8 pt-24 md:pt-60 mb-40">
+      <div className="flex flex-col justify-start items-center text-center gap-8 p-8 pt-24 md:pt-60 mb-72">
         <div className="flex flex-col items-center gap-4">
           <h1 className="font-ubuntu text-7xl font-bold leading-tight text-black/80 m-0">
             we are here to
@@ -27,6 +28,9 @@ function Home() {
           JSD Global Design - Visualisation 3D & Design Architectural
         </p>
       </div>
+
+      {/* Section Bounce Cards Features */}
+      <BouncyCardsFeatures />
 
       {/* Section Gallery */}
       <Gallery4 />
