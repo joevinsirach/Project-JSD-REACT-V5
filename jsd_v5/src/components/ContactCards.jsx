@@ -1,6 +1,7 @@
 // jsd_v5/src/components/ContactCards.jsx
 import React from "react";
 import GlassSurface from "./GlassSurface/GlassSurface";
+import "./ContactCards.css"; // <= AJOUT
 
 // imports des logos
 import behanceLogo from "../ressources1/Behance_blanc_blanc1.png";
@@ -11,7 +12,15 @@ import mailLogo from "../ressources1/Mail_blanc_blanc1.png";
 const ContactCards = () => {
   return (
     <div className="w-full flex justify-center">
-      <div className="grid grid-cols-2 gap-6 place-items-center">
+      <div
+        className="
+          contact-cards-grid   /* classe custom pour gérer l'aspect-ratio */
+          grid 
+          grid-cols-4          /* 4 cartes alignées par défaut */
+          gap-6 
+          place-items-center
+        "
+      >
         {/* Behance */}
         <a
           href="https://www.behance.net/joevin"

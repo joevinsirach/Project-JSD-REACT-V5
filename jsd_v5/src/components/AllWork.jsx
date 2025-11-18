@@ -94,8 +94,10 @@ const AllWork = () => {
                   rounded-[25px]
                   shadow-[0_6px_18px_rgba(0,0,0,0.13)]
                   group
+                  cursor-pointer
                 "
               >
+                {/* Image couleur, floutée au hover */}
                 <img
                   src={item.src}
                   alt={item.alt}
@@ -104,35 +106,49 @@ const AllWork = () => {
                     aspect-[3/2] 
                     object-cover 
                     block 
-                    grayscale-[0.9]
                     transition 
                     duration-300 
                     ease-out
-                    group-hover:grayscale-0
+                    group-hover:blur-sm
                     group-hover:scale-105
                     rounded-[25px]
                   "
                 />
+
+                
+                {/* Overlay titre centré, avec fond sombre au hover */}
                 <div
-                  className="
+                className="
                     absolute 
-                    bottom-2 
-                    left-2 
-                    bg-black/20 
-                    text-white 
-                    px-2.5 
-                    py-1 
-                    text-[0.85rem]
-                    rounded-full
-                    pointer-events-none
-                    select-none
-                    backdrop-blur-[4px]
-                    font-light
-                    tracking-[0.03em]
-                  "
+                    inset-0 
+                    flex 
+                    items-center 
+                    justify-center 
+                    bg-black/0
+                    group-hover:bg-black/35
+                    transition 
+                    duration-300 
+                    ease-out
+                "
                 >
-                  {item.label}
+                <span
+                    className="
+                    opacity-0 
+                    group-hover:opacity-100
+                    text-white 
+                    text-sm 
+                    md:text-base 
+                    font-medium 
+                    tracking-[0.05em]
+                    uppercase
+                    text-center
+                    "
+                >
+                    {item.label}
+                </span>
                 </div>
+
+
               </div>
             ))}
           </div>

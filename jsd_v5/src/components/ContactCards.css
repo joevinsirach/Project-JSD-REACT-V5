@@ -1,0 +1,10 @@
+/* jsd_v5/src/components/ContactCards.css */
+
+/* Par défaut : 4 colonnes (déjà géré par grid-cols-4 en Tailwind) */
+
+/* Quand l'écran est plus haut que large (ratio <= 1:1), on passe en 2 colonnes */
+@media (max-aspect-ratio: 1/1) {
+  .contact-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
