@@ -1,12 +1,14 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// jsd_v5/src/App.js
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import DarkVeil from './components/backgrounds/DarkVeil/DarkVeil';
-import Header from './components/Header';
-import Home from './pages/Home';
-import Contact from './pages/Contact';
-import Footer from './components/Footer';
-import { CarouselPartenaires } from './components/CarouselPartenaires';
+import DarkVeil from "./components/backgrounds/DarkVeil/DarkVeil";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import Footer from "./components/Footer";
+import { CarouselPartenaires } from "./components/CarouselPartenaires";
+import WorkPage from "./pages/Work";
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/work" element={<WorkPage />} />
       </Routes>
 
       <CarouselPartenaires />
