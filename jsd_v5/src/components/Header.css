@@ -1,12 +1,18 @@
+/* jsd_v5/src/components/Header.css */
+
 .header-wrapper {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+
+  /* au-dessus de GradualBlur (zIndex=10) et DarkVeil */
+  z-index: 9999;
+
   display: flex;
   justify-content: center;
   padding: 1.5rem 0;
+  pointer-events: auto;
 }
 
 .header-container {
@@ -64,6 +70,7 @@
   opacity: 0.7;
 }
 
+/* décale le contenu pour ne pas passer sous le header fixe */
 body {
   padding-top: 120px;
 }
@@ -72,15 +79,15 @@ body {
   .header-container {
     width: 95%;
   }
-  
+
   .nav-content {
     padding: 0 1.5rem;
   }
-  
+
   .nav-links {
     gap: 1.5rem;
   }
-  
+
   .nav-links a {
     font-size: 0.9rem;
   }

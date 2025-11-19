@@ -30,7 +30,7 @@ const data = [
     title: "Sephora",
     description:
       "Intégration réaliste de produits cosmétiques Sephora dans un environnement lifestyle élégant.",
-    href: "#",
+    href: "/work",
     image: sephora,
   },
   {
@@ -38,14 +38,14 @@ const data = [
     title: "Visualisation 3D Archi",
     description:
       "Visualisation 3D pour un cabinet d'architecture pour particulier.",
-    href: "#",
+    href: "/work",
     image: casalini,
   },
   {
     id: "projet-3",
     title: "Design Produit",
     description: "Rendu de mobilier design.",
-    href: "#",
+    href: "/work",
     image: chaises,
   },
   {
@@ -53,7 +53,7 @@ const data = [
     title: "Moet / Chandon",
     description:
       "Conception 3D d'un stand événementiel pour Moet / Chandon",
-    href: "#",
+    href: "/work",
     image: plan,
   },
   {
@@ -61,7 +61,7 @@ const data = [
     title: "Maxicoffee",
     description:
       "Aménagement d'un corner café moderne pour point de vente. Design fonctionnel et attractif.",
-    href: "#",
+    href: "/work",
     image: maxicoffee,
   },
   {
@@ -69,21 +69,21 @@ const data = [
     title: "VUSE / VELO",
     description:
       "Conception 3D d'un stand événementiel pour VUSE / VELO",
-    href: "#",
+    href: "/work",
     image: stand2,
   },
   {
     id: "projet-7",
     title: "Design Produit",
     description: "Modélisation et rendu 3D pour un industriel chinois.",
-    href: "#",
+    href: "/work",
     image: lampe,
   },
   {
     id: "projet-8",
     title: "Visualisation 3D Intérieur",
     description: "Architecture intérieur et Rendu 3D.",
-    href: "#",
+    href: "/work",
     image: cam1,
   },
   {
@@ -91,14 +91,14 @@ const data = [
     title: "VUSE / VELO",
     description:
       "Mise en scène publicitaire de produits avec éclairage intégré.",
-    href: "#",
+    href: "/work",
     image: glorifier,
   },
   {
     id: "projet-10",
     title: "Kinder Bueno",
     description: "Conception 3D d'un stand événementiel pour Kinder.",
-    href: "#",
+    href: "/work",
     image: faceBasket,
   },
   {
@@ -106,7 +106,7 @@ const data = [
     title: "Visualisation 3D Archi",
     description:
       "Visualisation architecturale extérieure d'une maison individuelle contemporaine avec environnement paysager.",
-    href: "#",
+    href: "/work",
     image: maisonMorreale,
   },
   {
@@ -114,7 +114,7 @@ const data = [
     title: "VUSE / VELO",
     description:
       "Conception 3D d'un stand événementiel pour VUSE / VELO",
-    href: "#",
+    href: "/work",
     image: standBat,
   },
   {
@@ -122,14 +122,14 @@ const data = [
     title: "PIQ in",
     description:
       "Visualisation 3D publicitaires pour produit destiné au marché japonais.",
-    href: "#",
+    href: "/work",
     image: piq,
   },
   {
     id: "projet-14",
     title: "JBL",
     description: "Conception 3D d'un stand événementiel pour JBL.",
-    href: "#",
+    href: "/work",
     image: postProd,
   },
   {
@@ -137,14 +137,14 @@ const data = [
     title: "Moet / Chandon",
     description:
       "Conception 3D d'un stand événementiel pour Moet / Chandon",
-    href: "#",
+    href: "/work",
     image: v3Jour,
   },
   {
     id: "projet-16",
     title: "Kinder Bueno",
     description: "Conception 3D d'un stand événementiel pour Kinder.",
-    href: "#",
+    href: "/work",
     image: buenoFlag,
   },
   {
@@ -152,7 +152,7 @@ const data = [
     title: "VUSE / VELO",
     description:
       "Visualisation détaillée pour support de vente immobilier avec mise en valeur des espaces.",
-    href: "#",
+    href: "/work",
     image: ppRendu,
   },
   {
@@ -160,7 +160,7 @@ const data = [
     title: "Moet / Chandon",
     description:
       "Conception 3D d'un stand événementiel pour Moet / Chandon",
-    href: "#",
+    href: "/work",
     image: chandon,
   },
 ];

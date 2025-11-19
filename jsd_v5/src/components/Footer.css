@@ -1,4 +1,7 @@
 footer {
+  position: relative;                 /* le fait entrer dans la pile de z-index */
+  z-index: 9999;                      /* même niveau que le header */
+
   background-color: rgba(0, 0, 0, 0.85);
   color: rgba(255, 255, 255, 0.9);
   padding: 4rem 2rem 2rem;

@@ -29,6 +29,8 @@ const categories = [
   {
     id: "stand",
     title: "Stand",
+    description:
+      "Conception et rendu 3D de stands sur mesure pour marques et festivals, du volume global aux détails de signalétique, afin de valoriser vos activations événementielles et optimiser l’expérience visiteur.",
     items: [
       { src: imgBuenoFaceflag, alt: "Design de Stand Kinder Bueno pour evenement", label: "Kinder Bueno" },
       { src: imgChandonV1, alt: "Design de Stand Moet / Chandon pour evenement", label: "Moet / Chandon" },
@@ -44,6 +46,8 @@ const categories = [
   {
     id: "architecture",
     title: "Architecture",
+    description:
+      "Visualisations 3D d’architecture extérieure et d’aménagement intérieur, pensées pour mettre en valeur volumes, matières et lumières, au service de projets résidentiels et commerciaux.",
     items: [
       { src: imgArchMaison, alt: "Rendu 3D d'architecture et d'intérieur", label: "Architecture" },
       { src: imgArchCasalini, alt: "Rendu 3D d'architecture", label: "Architecture" },
@@ -53,6 +57,8 @@ const categories = [
   {
     id: "design",
     title: "Design",
+    description:
+      "Design produit et images 3D photoréalistes pour le prototypage, la mise en scène marketing et la communication de marques, du mobilier aux objets techniques.",
     items: [
       { src: imgEconeves, alt: "Rendu 3D Rhino pour Econeves", label: "Water Flush by Eco Neves" },
       { src: imgMaxicoffee, alt: "Rendu 3DSMAX et Vray pour Maxicoffee", label: "Maxicoffee" },
@@ -70,9 +76,14 @@ const AllWork = () => {
       {categories.map((category) => (
         <div key={category.id} className="mb-16">
           {/* Titre de catégorie */}
-          <h2 className="text-2xl md:text-3xl font-medium mb-8">
+          <h2 className="text-2xl md:text-3xl font-medium mb-3">
             {category.title}
           </h2>
+
+          {/* Descriptif SEO */}
+          <p className="text-base md:text-lg text-slate-700 max-w-2xl mb-8">
+            {category.description}
+          </p>
 
           {/* Grille d'images */}
           <div
@@ -115,10 +126,9 @@ const AllWork = () => {
                   "
                 />
 
-                
                 {/* Overlay titre centré, avec fond sombre au hover */}
                 <div
-                className="
+                  className="
                     absolute 
                     inset-0 
                     flex 
@@ -129,26 +139,24 @@ const AllWork = () => {
                     transition 
                     duration-300 
                     ease-out
-                "
+                  "
                 >
-                <span
+                  <span
                     className="
-                    opacity-0 
-                    group-hover:opacity-100
-                    text-white 
-                    text-sm 
-                    md:text-base 
-                    font-medium 
-                    tracking-[0.05em]
-                    uppercase
-                    text-center
+                      opacity-0 
+                      group-hover:opacity-100
+                      text-white 
+                      text-sm 
+                      md:text-base 
+                      font-medium 
+                      tracking-[0.05em]
+                      uppercase
+                      text-center
                     "
-                >
+                  >
                     {item.label}
-                </span>
+                  </span>
                 </div>
-
-
               </div>
             ))}
           </div>
