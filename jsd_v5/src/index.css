@@ -38,6 +38,7 @@ html, body {
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;              /* ← Ajoute la propriété standard */
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
