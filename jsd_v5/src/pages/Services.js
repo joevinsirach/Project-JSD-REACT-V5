@@ -8,7 +8,7 @@ import {
 } from "@radix-ui/react-icons";
 import { BentoGrid, BentoCard } from "../components/ui/bento-grid";
 import { Gallery4 } from "../components/gallery4";
-
+import { Design } from "../components/Design";
 
 const ServicesPage = () => {
   return (
@@ -19,7 +19,7 @@ const ServicesPage = () => {
         </h1>
         <p className="text-base md:text-lg text-slate-700 max-w-2xl">
           Accompagnement complet en conception 3D pour vos stands, espaces
-          et produits: de l’idée au rendu final exploitable en présentation,
+          et produits: de l'idée au rendu final exploitable en présentation,
           marketing ou production.
         </p>
       </header>
@@ -28,7 +28,7 @@ const ServicesPage = () => {
         <BentoCard
           name="Stand & événementiel"
           Icon={CubeIcon}
-          description="Conception et visualisation 3D de stands sur mesure pour salons, festivals et pop-up stores, pensés pour maximiser l’impact de marque et l’expérience visiteur."
+          description="Conception et visualisation 3D de stands sur mesure pour salons, festivals et pop-up stores, pensés pour maximiser l'impact de marque et l'expérience visiteur."
           href="/work#stand"
           cta="Voir les stands"
           background={
@@ -40,9 +40,9 @@ const ServicesPage = () => {
         <BentoCard
           name="Architecture & espaces"
           Icon={EyeOpenIcon}
-          description="Rendus 3D d’architecture extérieure et d’aménagement intérieur."
+          description="Rendus 3D d'architecture extérieure et d'aménagement intérieur."
           href="/work#architecture"
-          cta="Voir l’architecture"
+          cta="Voir l'architecture"
           background={
             <div className="bg-gradient-to-br from-slate-100 via-slate-50 to-white" />
           }
@@ -66,13 +66,16 @@ const ServicesPage = () => {
           Icon={GlobeIcon}
           description="Conception et développement de sites internet modernes, React ou HTML, afin de valoriser votre image de marque."
           href="/contact"
-          cta="Discuter d’un projet"
+          cta="Discuter d'un projet"
           background={
             <div className="bg-gradient-to-br from-neutral-100 via-white to-neutral-50" />
           }
           className="md:col-span-2"
         />
       </BentoGrid>
+
+      {/* Composant Design ajouté */}
+      <Design />
 
       {/* Galerie de réalisations récentes liée aux services */}
       <div className="-mt-6">
