@@ -36,3 +36,34 @@
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 768px) {
+  /* Cible ton footer (vérifie que ton composant Footer utilise une balise <footer> ou une classe .footer) */
+  footer, .footer-container {
+    background-color: transparent !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Cible tous les textes dans le footer */
+  footer *, .footer-container * {
+    color: rgba(255, 255, 255, 0.8) !important; /* Gris clair (80% blanc) */
+  }
+
+  /* Cible les liens spécifiquement pour garder une interaction */
+  footer a, .footer-container a {
+    color: rgba(255, 255, 255, 0.6) !important;
+    text-decoration: none;
+  }
+  
+  /* Pour les titres (h3, h4...) on les garde un peu plus brillants */
+  footer h3, footer h4, .footer-container h3 {
+    color: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  /* Supprime les bordures séparatrices s'il y en a */
+  footer hr, .footer-container hr, .border-t {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+}

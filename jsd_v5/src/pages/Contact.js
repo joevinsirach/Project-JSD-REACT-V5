@@ -6,9 +6,12 @@ import SousTitreSimpleJSD from "../components/SousTitreSimpleJSD";
 
 const ContactSection = () => {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-20 text-slate-800">
+    // Mobile: pt-12 (très haut) | Desktop: pt-32 (normal)
+    <section className="mx-auto max-w-7xl px-4 pt-12 pb-20 md:pt-32 md:pb-20 text-slate-800">
+      
       {/* Groupe Titre + Sous-titre */}
-      <div className="mt-12 mb-16">
+      {/* Suppression de la marge top sur mobile (mt-0), garde mt-12 sur desktop */}
+      <div className="mt-0 md:mt-12 mb-16">
         <TitreSimpleJSD>Contactez-nous</TitreSimpleJSD>
         
         <div className="mt-8">
@@ -22,12 +25,10 @@ const ContactSection = () => {
         </div>
       </div>
 
-      {/* Nouveau composant ContactCards avec espacement */}
       <div className="mt-8 mb-16">
         <ContactCards />
       </div>
 
-      {/* Composant HolographicCard */}
       <div className="max-w-lg mx-auto mb-12">
         <HolographicCard />
       </div>

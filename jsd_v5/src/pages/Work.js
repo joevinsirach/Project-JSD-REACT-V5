@@ -6,7 +6,8 @@ import TitreSimpleJSD from "../components/TitreSimpleJSD";
 const WorkPage = () => {
   return (
     <main className="bg-transparent min-h-screen">
-      <div className="pt-20"> {/* Ajout de padding-top pour espacer du header si besoin */}
+      {/* Mobile : pt-12 (48px) | Desktop : md:pt-32 */}
+      <div className="pt-12 md:pt-32"> 
         <TitreSimpleJSD>Réalisations</TitreSimpleJSD>
       </div>
       
