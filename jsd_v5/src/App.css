@@ -67,3 +67,20 @@
     border-color: rgba(255, 255, 255, 0.1) !important;
   }
 }
+
+/* Désactive la sélection de texte partout */
+body {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none; /* Standard */
+  
+  /* Désactive le menu contextuel tactile (long press) sur iOS/Android */
+  -webkit-touch-callout: none;
+}
+
+/* Si tu veux autoriser la sélection sur les inputs et textareas (important pour les formulaires !) */
+input, textarea {
+  -webkit-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
+}

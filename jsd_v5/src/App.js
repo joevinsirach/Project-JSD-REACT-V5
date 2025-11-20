@@ -23,15 +23,45 @@ const ScrollToTop = () => {
   return null;
 };
 
+// --- COMPOSANT INTERNE : SITE PROTECTION ---
+// Bloque le clic droit, le drag d'image et certains raccourcis
+const SiteProtection = () => {
+  useEffect(() => {
+    const handleContextMenu = (e) => e.preventDefault();
+    
+    const handleDragStart = (e) => {
+      if (e.target.tagName === 'IMG') e.preventDefault();
+    };
+
+    const handleKeyDown = (e) => {
+      // Bloquer F12 et Ctrl+Shift+I
+      if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
+        e.preventDefault();
+      }
+    };
+
+    document.addEventListener('contextmenu', handleContextMenu);
+    document.addEventListener('dragstart', handleDragStart);
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('contextmenu', handleContextMenu);
+      document.removeEventListener('dragstart', handleDragStart);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
+  return null;
+};
+
 function App() {
   return (
     <Router>
-      {/* Active le scroll vers le haut */}
       <ScrollToTop />
-
+      <SiteProtection />
       <DarkVeil hueShift={200} speed={1} noiseIntensity={0.01} />
 
-      {/* Z-INDEX 30 : Le flou est au niveau 30 */}
+      {/* FLOU TOP */}
       <GradualBlur
         position="top"
         target="page"
@@ -43,11 +73,11 @@ function App() {
         animated={false}
         zIndex={30}
         style={{
-          backgroundImage:
-            "linear-gradient(to bottom, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0) 100%)",
+          backgroundImage: "linear-gradient(to bottom, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0) 100%)",
         }}
       />
 
+      {/* FLOU BOTTOM */}
       <GradualBlur
         position="bottom"
         target="page"
@@ -59,20 +89,17 @@ function App() {
         animated={false}
         zIndex={30}
         style={{
-          backgroundImage:
-            "linear-gradient(to top, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0) 100%)",
+          backgroundImage: "linear-gradient(to top, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0) 100%)",
         }}
       />
 
-      {/* HEADER MOBILE */}
       <MobileHeader />
       
-      {/* HEADER DESKTOP */}
       <div className="hidden md:block relative z-50">
         <Header theme="light" />
       </div>
 
-      {/* CONTENU (Z-INDEX 10) : Reste SOUS le flou */}
+      {/* CONTENU PRINCIPAL */}
       <div className="relative z-10 pb-32 md:pb-0">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -82,19 +109,18 @@ function App() {
         </Routes>
       </div>
 
-      {/* CAROUSEL : z-40 pour être au-dessus du flou */}
-      <div className="relative z-4">
+      {/* CAROUSEL */}
+      <div className="relative z-40">
           <CarouselPartenaires />
       </div>
 
-      {/* FOOTER : */}
-      {/* Mobile : z-20 (SOUS le flou z-30) -> Le flou s'affiche par dessus */}
-      {/* Desktop : md:z-40 (DESSUS le flou z-30) + md:bg-white (Opaque) -> Cache le flou */}
-      <div className="relative z-20 md:z-40 md:bg-white">
+      {/* FOOTER */}
+      {/* Mobile : z-20 (sous le flou z-30) + padding-bottom 24 (pour la navbar) */}
+      {/* Desktop : z-40 (sur le flou z-30) + bg-white (cache le flou) + pas de padding */}
+      <div className="relative z-20 md:z-40 md:bg-white pb-24 md:pb-0">
           <Footer />
       </div>
 
-      {/* BARRE NAVIGATION MOBILE */}
       <MobileNavBar />
       
     </Router>
