@@ -1,5 +1,6 @@
 /*
-	Installed from https://reactbits.dev/default/
+  Installed from https://reactbits.dev/default/
+  CLEANED: Strict zIndex handling. No magic additions.
 */
 
 import React, { useEffect, useRef, useState, useMemo } from 'react';
@@ -13,7 +14,7 @@ const DEFAULT_CONFIG = {
   height: '6rem',
   divCount: 5,
   exponential: false,
-  zIndex: 1000,
+  zIndex: 40, // Valeur par défaut saine (au-dessus du contenu z-0, sous les headers z-50)
   animated: false,
   duration: '0.3s',
   easing: 'ease-out',
@@ -94,13 +95,10 @@ const useIntersectionObserver = (ref, shouldObserve = false) => {
 
   useEffect(() => {
     if (!shouldObserve || !ref.current) return;
-
     const observer = new IntersectionObserver(([entry]) => setIsVisible(entry.isIntersecting), { threshold: 0.1 });
-
     observer.observe(ref.current);
     return () => observer.disconnect();
   }, [ref, shouldObserve]);
-
   return isVisible;
 };
 
@@ -115,7 +113,6 @@ function GradualBlur(props) {
 
   const responsiveHeight = useResponsiveDimension(config.responsive, config, 'height');
   const responsiveWidth = useResponsiveDimension(config.responsive, config, 'width');
-
   const isVisible = useIntersectionObserver(containerRef, config.animated === 'scroll');
 
   const blurDivs = useMemo(() => {
@@ -164,7 +161,6 @@ function GradualBlur(props) {
 
       divs.push(<div key={i} style={divStyle} />);
     }
-
     return divs;
   }, [config, isHovered]);
 
@@ -178,7 +174,10 @@ function GradualBlur(props) {
       pointerEvents: config.hoverIntensity ? 'auto' : 'none',
       opacity: isVisible ? 1 : 0,
       transition: config.animated ? `opacity ${config.duration} ${config.easing}` : undefined,
-      zIndex: isPageTarget ? config.zIndex + 100 : config.zIndex,
+      // --- CORRECTION MAJEURE ---
+      // On applique STRICTEMENT le zIndex de la config.
+      // Plus d'addition magique.
+      zIndex: config.zIndex, 
       ...config.style
     };
 

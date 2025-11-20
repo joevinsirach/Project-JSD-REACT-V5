@@ -64,7 +64,7 @@ const MobileNavBar = () => {
       <div className="fixed bottom-6 left-0 right-0 z-[9999] flex justify-center md:hidden pointer-events-none">
         <div className="pointer-events-auto">
             <GlassSurface
-                width="92vw" 
+                width="92vw"
                 height={65}
                 borderRadius={32}
                 borderWidth={0} 

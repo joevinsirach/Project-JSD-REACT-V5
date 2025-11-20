@@ -36,7 +36,7 @@ const ServicesPage = () => {
       <TitreSimpleJSD title="Services" />
       
       <p className="-mt-8 text-center max-w-2xl mx-auto text-lg text-slate-600">
-        Cliquez sur une carte pour en savoir plus.
+        Scrollez pour explorer nos services ou cliquez sur une carte pour en savoir plus.
       </p>
 
       <div className="flex justify-center">

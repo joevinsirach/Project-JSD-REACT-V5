@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
 
-// Import des images
+// --- IMPORTS DES IMAGES ---
 import buenoFlag from '../ressources1/BuenoV3_FACEFLAG.webp';
 import cam1 from '../ressources1/Cam1HQ.webp';
 import casalini from '../ressources1/CasaliniRenderV3.webp';
@@ -24,20 +24,19 @@ import stand2 from '../ressources1/Stand2_V5.webp';
 import v3Jour from '../ressources1/V3_jour.webp';
 import glorifier from '../ressources1/V4-Products_1GLORIFIER.webp';
 
+// --- DONNÉES ---
 const data = [
   {
     id: "projet-1",
     title: "Sephora",
-    description:
-      "Intégration réaliste de produits cosmétiques Sephora dans un environnement lifestyle élégant.",
+    description: "Intégration réaliste de produits cosmétiques Sephora dans un environnement lifestyle élégant.",
     href: "/work",
     image: sephora,
   },
   {
     id: "projet-2",
     title: "Visualisation 3D Archi",
-    description:
-      "Visualisation 3D pour un cabinet d'architecture pour particulier.",
+    description: "Visualisation 3D pour un cabinet d'architecture pour particulier.",
     href: "/work",
     image: casalini,
   },
@@ -51,24 +50,21 @@ const data = [
   {
     id: "projet-4",
     title: "Moet / Chandon",
-    description:
-      "Conception 3D d'un stand événementiel pour Moet / Chandon",
+    description: "Conception 3D d'un stand événementiel pour Moet / Chandon",
     href: "/work",
     image: plan,
   },
   {
     id: "projet-5",
     title: "Maxicoffee",
-    description:
-      "Aménagement d'un corner café moderne pour point de vente. Design fonctionnel et attractif.",
+    description: "Aménagement d'un corner café moderne pour point de vente. Design fonctionnel et attractif.",
     href: "/work",
     image: maxicoffee,
   },
   {
     id: "projet-6",
     title: "VUSE / VELO",
-    description:
-      "Conception 3D d'un stand événementiel pour VUSE / VELO",
+    description: "Conception 3D d'un stand événementiel pour VUSE / VELO",
     href: "/work",
     image: stand2,
   },
@@ -89,8 +85,7 @@ const data = [
   {
     id: "projet-9",
     title: "VUSE / VELO",
-    description:
-      "Mise en scène publicitaire de produits avec éclairage intégré.",
+    description: "Mise en scène publicitaire de produits avec éclairage intégré.",
     href: "/work",
     image: glorifier,
   },
@@ -104,24 +99,21 @@ const data = [
   {
     id: "projet-11",
     title: "Visualisation 3D Archi",
-    description:
-      "Visualisation architecturale extérieure d'une maison individuelle contemporaine avec environnement paysager.",
+    description: "Visualisation architecturale extérieure d'une maison individuelle contemporaine avec environnement paysager.",
     href: "/work",
     image: maisonMorreale,
   },
   {
     id: "projet-12",
     title: "VUSE / VELO",
-    description:
-      "Conception 3D d'un stand événementiel pour VUSE / VELO",
+    description: "Conception 3D d'un stand événementiel pour VUSE / VELO",
     href: "/work",
     image: standBat,
   },
   {
     id: "projet-13",
     title: "PIQ in",
-    description:
-      "Visualisation 3D publicitaires pour produit destiné au marché japonais.",
+    description: "Visualisation 3D publicitaires pour produit destiné au marché japonais.",
     href: "/work",
     image: piq,
   },
@@ -135,8 +127,7 @@ const data = [
   {
     id: "projet-15",
     title: "Moet / Chandon",
-    description:
-      "Conception 3D d'un stand événementiel pour Moet / Chandon",
+    description: "Conception 3D d'un stand événementiel pour Moet / Chandon",
     href: "/work",
     image: v3Jour,
   },
@@ -150,16 +141,14 @@ const data = [
   {
     id: "projet-17",
     title: "VUSE / VELO",
-    description:
-      "Visualisation détaillée pour support de vente immobilier avec mise en valeur des espaces.",
+    description: "Visualisation détaillée pour support de vente immobilier avec mise en valeur des espaces.",
     href: "/work",
     image: ppRendu,
   },
   {
     id: "projet-18",
     title: "Moet / Chandon",
-    description:
-      "Conception 3D d'un stand événementiel pour Moet / Chandon",
+    description: "Conception 3D d'un stand événementiel pour Moet / Chandon",
     href: "/work",
     image: chandon,
   },
@@ -173,14 +162,12 @@ const Gallery4 = ({
   const [carouselApi, setCarouselApi] = useState();
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     if (!carouselApi) return;
     const updateSelection = () => {
       setCanScrollPrev(carouselApi.canScrollPrev());
       setCanScrollNext(carouselApi.canScrollNext());
-      setCurrentSlide(carouselApi.selectedScrollSnap());
     };
     updateSelection();
     carouselApi.on("select", updateSelection);
@@ -192,6 +179,7 @@ const Gallery4 = ({
   return (
     <section className="mx-auto max-w-7xl px-4 py-32">
       <div className="container mx-auto px-4">
+        {/* Header Section */}
         <div className="mb-8 flex flex-col md:flex-row md:items-center md:justify-between md:mb-14 lg:mb-16">
           <div className="max-w-lg text-left flex flex-col gap-4">
             <h2 className="text-3xl font-medium md:text-4xl lg:text-5xl" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
@@ -205,7 +193,6 @@ const Gallery4 = ({
               variant="ghost"
               onClick={() => carouselApi?.scrollPrev()}
               disabled={!canScrollPrev}
-              className="disabled:pointer-events-auto"
             >
               <ArrowLeft className="w-5 h-5" />
             </Button>
@@ -214,29 +201,35 @@ const Gallery4 = ({
               variant="ghost"
               onClick={() => carouselApi?.scrollNext()}
               disabled={!canScrollNext}
-              className="disabled:pointer-events-auto"
             >
               <ArrowRight className="w-5 h-5" />
             </Button>
           </div>
         </div>
       </div>
+
+      {/* Carousel Section */}
       <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw]">
         <Carousel
           setApi={setCarouselApi}
           opts={{
-            breakpoints: {
-              "(max-width: 768px)": {
-                dragFree: true,
-              },
-            },
+            // OPTION DU CAROUSEL: CENTRAGE + LOOP
+            align: "center",
+            loop: true,
           }}
         >
-          <CarouselContent className="ml-0 justify-start">
+          <CarouselContent className="-ml-4">
             {items.map((item) => (
-              <CarouselItem key={item.id} className="max-w-[420px] pl-[20px] lg:max-w-[480px]">
-                <a href={item.href} className="group rounded-xl block">
-                  <div className="group relative overflow-hidden rounded-xl aspect-[16/9]">
+              <CarouselItem 
+                key={item.id} 
+                // CLASSE RESPONSIVE : 
+                // basis-[85%] sur mobile -> 85% de largeur, centré, laisse voir les bords.
+                // md:basis-1/2 -> 50% sur tablette
+                // lg:basis-1/3 -> 33% sur desktop
+                className="pl-4 basis-[85%] md:basis-1/2 lg:basis-1/3 max-w-[480px]"
+              >
+                <a href={item.href} className="group rounded-xl block h-full">
+                  <div className="group relative overflow-hidden rounded-xl aspect-[16/9] md:aspect-[4/3] lg:aspect-[16/9]">
                     <img
                       src={item.image}
                       alt={item.title}
@@ -250,8 +243,8 @@ const Gallery4 = ({
                       <div className="mb-8 line-clamp-2 md:mb-12">
                         {item.description}
                       </div>
-                      <div className="flex items-center text-sm">
-                        Voir plus{" "}
+                      <div className="flex items-center text-sm font-medium text-white/90 hover:text-white">
+                        Voir plus
                         <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                       </div>
                     </div>
