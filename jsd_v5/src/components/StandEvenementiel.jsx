@@ -1,32 +1,32 @@
-import { Lightbulb, Palette, Sparkles } from "lucide-react";
+import { Cuboid, Tent, Users } from "lucide-react";
 
 import { Separator } from "./ui/separator";
 import { InteractiveHoverButton } from "./ui/interactive-hover-button";
-import lampeImage from "../ressources1/Lampe3.webp";
+import standImage from "../ressources1/NORMAL_CHANDON_V1.webp"; // Image mise à jour
 
-const Design = ({
-  heading = "Excellence en Design 3D et Visualisation",
-  imageSrc = lampeImage,
-  imageAlt = "Design produit 3D par JSD Global Design",
+const StandEvent = ({
+  heading = "Stands & Espaces Événementiels Impactants",
+  imageSrc = standImage,
+  imageAlt = "Design de stand événementiel 3D par JSD Global Design",
 
   features = [
     {
-      icon: <Lightbulb className="h-auto w-5" />,
-      title: "Innovation & Créativité",
+      icon: <Cuboid className="h-auto w-5" />,
+      title: "Design Sur Mesure",
       description:
-        "Des concepts originaux et innovants qui donnent vie à vos idées avec une approche créative unique.",
+        "Conception de stands uniques qui reflètent l'identité de votre marque et captent l'attention des visiteurs.",
     },
     {
-      icon: <Palette className="h-auto w-5" />,
-      title: "Expertise Multisectorielle",
+      icon: <Tent className="h-auto w-5" />,
+      title: "Optimisation de l'Espace",
       description:
-        "Du design produit à l'architecture intérieure, notre polyvalence couvre tous vos besoins en visualisation 3D.",
+        "Aménagement intelligent pour maximiser la visibilité, la circulation et l'expérience utilisateur sur votre emplacement.",
     },
     {
-      icon: <Sparkles className="h-auto w-5" />,
-      title: "Rendu Photoréaliste",
+      icon: <Users className="h-auto w-5" />,
+      title: "Expérience Visiteur",
       description:
-        "Des visuels d'une qualité exceptionnelle qui capturent chaque détail avec un réalisme saisissant.",
+        "Création d'environnements immersifs et engageants favorisant les échanges commerciaux et la mémorisation de marque.",
     },
   ]
 }) => {
@@ -83,7 +83,6 @@ const Design = ({
           ))}
         </div>
 
-        {/* Boutons avec InteractiveHoverButton */}
         <div className="mx-auto mt-12 flex max-w-screen-lg justify-center gap-6 flex-wrap">
           <InteractiveHoverButton 
             text="Contact" 
@@ -101,4 +100,4 @@ const Design = ({
   );
 };
 
-export { Design };
+export { StandEvent };

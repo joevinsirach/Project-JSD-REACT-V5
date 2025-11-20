@@ -1,32 +1,32 @@
-import { Lightbulb, Palette, Sparkles } from "lucide-react";
+import { Home, Ruler, Sun } from "lucide-react";
 
 import { Separator } from "./ui/separator";
-import { InteractiveHoverButton } from "./ui/interactive-hover-button";
-import lampeImage from "../ressources1/Lampe3.webp";
+import { InteractiveHoverButton } from "./ui/interactive-hover-button"; // Import des boutons
+import maisonImage from "../ressources1/MaisonMORREALE_V7.webp";
 
-const Design = ({
-  heading = "Excellence en Design 3D et Visualisation",
-  imageSrc = lampeImage,
-  imageAlt = "Design produit 3D par JSD Global Design",
+const Architecture = ({
+  heading = "Visualisation 3D Architecturale de Qualité",
+  imageSrc = maisonImage,
+  imageAlt = "Rendu architectural 3D par JSD Global Design",
 
   features = [
     {
-      icon: <Lightbulb className="h-auto w-5" />,
-      title: "Innovation & Créativité",
+      icon: <Home className="h-auto w-5" />,
+      title: "Immersion Réaliste",
       description:
-        "Des concepts originaux et innovants qui donnent vie à vos idées avec une approche créative unique.",
+        "Des rendus extérieurs et intérieurs qui permettent de visualiser votre projet architectural avant sa construction.",
     },
     {
-      icon: <Palette className="h-auto w-5" />,
-      title: "Expertise Multisectorielle",
+      icon: <Ruler className="h-auto w-5" />,
+      title: "Précision Technique",
       description:
-        "Du design produit à l'architecture intérieure, notre polyvalence couvre tous vos besoins en visualisation 3D.",
+        "Respect scrupuleux des plans et des proportions pour une représentation fidèle de votre vision architecturale.",
     },
     {
-      icon: <Sparkles className="h-auto w-5" />,
-      title: "Rendu Photoréaliste",
+      icon: <Sun className="h-auto w-5" />,
+      title: "Éclairage Naturel",
       description:
-        "Des visuels d'une qualité exceptionnelle qui capturent chaque détail avec un réalisme saisissant.",
+        "Simulation d'éclairage réaliste et mise en scène paysagère pour valoriser chaque projet dans son environnement.",
     },
   ]
 }) => {
@@ -83,7 +83,7 @@ const Design = ({
           ))}
         </div>
 
-        {/* Boutons avec InteractiveHoverButton */}
+        {/* Boutons InteractiveHoverButton ajoutés */}
         <div className="mx-auto mt-12 flex max-w-screen-lg justify-center gap-6 flex-wrap">
           <InteractiveHoverButton 
             text="Contact" 
@@ -101,4 +101,4 @@ const Design = ({
   );
 };
 
-export { Design };
+export { Architecture };

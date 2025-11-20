@@ -1,10 +1,68 @@
 /* jsd_v5/src/components/ContactCards.css */
 
-/* Par défaut : 4 colonnes (déjà géré par grid-cols-4 en Tailwind) */
+/* On cible le lien qui entoure la carte */
+.card-hover {
+  position: relative;
+  border-radius: 24px; /* Match exact du GlassSurface */
+  
+  /* Le secret : pas d'overflow hidden ici si ça casse le glass, 
+     mais on va clipper le pseudo-element */
+  
+  /* On s'assure que le lien prend la bonne taille */
+  display: block;
+  width: fit-content;
+  height: fit-content;
+  
+  /* Pour que le pseudo-element (reflet) se positionne par rapport à ce lien */
+  transform: translateZ(0); 
+}
 
-/* Quand l'écran est plus haut que large (ratio <= 1:1), on passe en 2 colonnes */
-@media (max-aspect-ratio: 1/1) {
+/* L'effet de reflet */
+.card-hover::after {
+  content: '';
+  position: absolute;
+  inset: 0; /* Prend toute la taille du lien/carte */
+  border-radius: 24px; /* Arrondi identique */
+  
+  background: linear-gradient(
+    115deg,
+    rgba(255,255,255,0) 40%,
+    rgba(255,255,255,0.4) 50%,
+    rgba(255,255,255,0) 60%
+  );
+  
+  background-size: 200% 100%;
+  background-position: 200% 0;
+  background-repeat: no-repeat;
+  
+  opacity: 0;
+  transition: background-position 0.8s ease, opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 20; /* Au-dessus du contenu de la carte */
+}
+
+/* Au survol */
+.card-hover:hover::after {
+  background-position: -100% 0;
+  opacity: 1;
+}
+
+/* Grille responsive */
+.contact-cards-grid {
+  width: 100%;
+  max-width: 1200px;
+}
+
+@media (max-width: 1024px) {
   .contact-cards-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }

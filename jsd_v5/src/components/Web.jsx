@@ -1,32 +1,33 @@
-import { Lightbulb, Palette, Sparkles } from "lucide-react";
+import { Globe, Smartphone, Code } from "lucide-react";
 
 import { Separator } from "./ui/separator";
 import { InteractiveHoverButton } from "./ui/interactive-hover-button";
-import lampeImage from "../ressources1/Lampe3.webp";
+// Remplacer par ton image de projet web
+import webImage from "../ressources1/Web_Project_V1.webp"; 
 
-const Design = ({
-  heading = "Excellence en Design 3D et Visualisation",
-  imageSrc = lampeImage,
-  imageAlt = "Design produit 3D par JSD Global Design",
+const WebDesign = ({
+  heading = "Sites Web Modernes & Expériences Digitales",
+  imageSrc = webImage,
+  imageAlt = "Développement site web React par JSD Global Design",
 
   features = [
     {
-      icon: <Lightbulb className="h-auto w-5" />,
-      title: "Innovation & Créativité",
+      icon: <Smartphone className="h-auto w-5" />,
+      title: "Responsive Design",
       description:
-        "Des concepts originaux et innovants qui donnent vie à vos idées avec une approche créative unique.",
+        "Une expérience utilisateur fluide et parfaitement adaptée à tous les supports : mobiles, tablettes et ordinateurs de bureau.",
     },
     {
-      icon: <Palette className="h-auto w-5" />,
-      title: "Expertise Multisectorielle",
+      icon: <Code className="h-auto w-5" />,
+      title: "Performance & React",
       description:
-        "Du design produit à l'architecture intérieure, notre polyvalence couvre tous vos besoins en visualisation 3D.",
+        "Développement sur-mesure avec les dernières technologies (React.js) pour des sites ultra-rapides, dynamiques et évolutifs.",
     },
     {
-      icon: <Sparkles className="h-auto w-5" />,
-      title: "Rendu Photoréaliste",
+      icon: <Globe className="h-auto w-5" />,
+      title: "Visibilité & SEO",
       description:
-        "Des visuels d'une qualité exceptionnelle qui capturent chaque détail avec un réalisme saisissant.",
+        "Une structure optimisée pour le référencement naturel afin de maximiser votre présence en ligne et toucher votre audience.",
     },
   ]
 }) => {
@@ -83,7 +84,6 @@ const Design = ({
           ))}
         </div>
 
-        {/* Boutons avec InteractiveHoverButton */}
         <div className="mx-auto mt-12 flex max-w-screen-lg justify-center gap-6 flex-wrap">
           <InteractiveHoverButton 
             text="Contact" 
@@ -101,4 +101,4 @@ const Design = ({
   );
 };
 
-export { Design };
+export { WebDesign };
