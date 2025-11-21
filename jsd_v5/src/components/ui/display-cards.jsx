@@ -40,41 +40,40 @@ function DisplayCard({ className = "", icon, title, description, href }) {
 
 export default function DisplayCards() {
   const cards = [
-    {
-      title: "Stand & événementiel",
-      description: "Conception 3D de stands sur mesure pour salons.",
-      icon: <CubeIcon className="size-5" />,
-      href: "#stand",
-      // Mobile : Hover réduit (-3rem) | Desktop : Hover fort (-4.5rem)
-      className: "z-40 [grid-area:stack] translate-x-0 translate-y-0 hover:-translate-y-[3rem] md:hover:-translate-y-[4.5rem]",
-    },
-    {
-      title: "Architecture & espaces",
-      description: "Rendus 3D d'architecture et d'aménagement intérieur.",
-      icon: <EyeOpenIcon className="size-5" />,
-      href: "#architecture",
-      // Mobile : écart augmenté (x-12, y-12) pour dégager le titre
-      // Desktop : écart standard (x-16, y-16)
-      className:
-        "z-30 [grid-area:stack] translate-x-12 -translate-y-12 md:translate-x-16 md:-translate-y-16 " +
-        "hover:translate-x-12 hover:-translate-y-[6rem] md:hover:translate-x-16 md:hover:-translate-y-[8.5rem]",
-    },
+    // 1. DESIGN (En haut de la pile - z-40)
     {
       title: "Design produit & objets",
       description: "Design produit et images 3D photoréalistes.",
       icon: <Pencil1Icon className="size-5" />,
       href: "#design",
-      // Mobile : écart augmenté (x-24, y-24)
+      className: "z-40 [grid-area:stack] translate-x-0 translate-y-0 hover:-translate-y-[3rem] md:hover:-translate-y-[4.5rem]",
+    },
+    // 2. ARCHITECTURE (2ème - z-30)
+    {
+      title: "Architecture & espaces",
+      description: "Rendus 3D d'architecture et d'aménagement intérieur.",
+      icon: <EyeOpenIcon className="size-5" />,
+      href: "#architecture",
+      className:
+        "z-30 [grid-area:stack] translate-x-12 -translate-y-12 md:translate-x-16 md:-translate-y-16 " +
+        "hover:translate-x-12 hover:-translate-y-[6rem] md:hover:translate-x-16 md:hover:-translate-y-[8.5rem]",
+    },
+    // 3. STAND (3ème - z-20)
+    {
+      title: "Stand & événementiel",
+      description: "Conception 3D de stands sur mesure pour salons.",
+      icon: <CubeIcon className="size-5" />,
+      href: "#stand",
       className:
         "z-20 [grid-area:stack] translate-x-24 -translate-y-24 md:translate-x-32 md:-translate-y-32 " +
         "hover:translate-x-24 hover:-translate-y-[9rem] md:hover:translate-x-32 md:hover:-translate-y-[12.5rem]",
     },
+    // 4. WEB (En bas de la pile - z-10)
     {
       title: "Web et site internet",
       description: "Sites modernes pour valoriser votre image.",
       icon: <GlobeIcon className="size-5" />,
       href: "#web",
-      // Mobile : écart augmenté (x-36, y-36)
       className:
         "z-10 [grid-area:stack] translate-x-36 -translate-y-36 md:translate-x-48 md:-translate-y-48 " +
         "hover:translate-x-36 hover:-translate-y-[12rem] md:hover:translate-x-48 md:hover:-translate-y-[16.5rem]",
@@ -82,7 +81,6 @@ export default function DisplayCards() {
   ];
 
   return (
-    // Ajustement des marges : right-12 sur mobile pour compenser l'élargissement de la pile
     <div className="grid h-[32rem] md:h-[40rem] w-full place-items-center overflow-visible mt-8 md:mt-12">
       <div className="grid [grid-template-areas:'stack'] relative right-12 md:right-16 top-[2rem] md:top-[4rem]"> 
         {cards.map((card, index) => (

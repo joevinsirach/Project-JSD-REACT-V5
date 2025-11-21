@@ -47,6 +47,19 @@
   opacity: 1;
 }
 
+/* Dégradé bleu-violet sur logos dans cartes contact */
+.contact-card-logo {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  /* si le logo est un svg ou icône, ajouter */
+  -webkit-text-fill-color: transparent;
+  /* pour SVG, si applicable */
+  fill: url(#gradientBlueViolet);
+}
+
 /* Grille responsive */
 .contact-cards-grid {
   width: 100%;
