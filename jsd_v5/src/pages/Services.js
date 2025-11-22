@@ -10,13 +10,13 @@ import { Architecture } from "../components/Architecture";
 import { StandEvent } from "../components/StandEvenementiel";
 import { WebDesign } from "../components/Web";
 
-// Import nommé (avec les accolades) pour éviter l'erreur "export default not found"
 import { PricingCard } from "../components/pricing-card-1";
 import { CarouselPartenaires } from "../components/CarouselPartenaires";
 
 const ServicesPage = () => {
   const { hash } = useLocation();
 
+  // Ce code gère déjà le scroll automatique vers #tarifs
   useEffect(() => {
     if (hash) {
       const timer = setTimeout(() => {
@@ -31,28 +31,30 @@ const ServicesPage = () => {
     }
   }, [hash]);
 
+  // --- MISES A JOUR DES CARTES ICI ---
   const pricingCards = [
     {
-      title: "Basic",
-      price: "€99",
-      priceDescription: "par mois",
-      description: "Pour les projets simples et efficaces.",
-      features: ["Design épuré", "Hébergement gratuit", "Support par email"],
-      buttonText: "Choisir Basic",
+      title: "Rendu 3D & Design",
+      price: "350€",
+      priceDescription: "à partir de / image",
+      description: "Images photoréalistes pour produits ou architecture.",
+      features: ["Modélisation 3D", "Texturing & Éclairage", "Rendu haute définition 4K", "Retouches incluses"],
+      buttonText: "Demander un devis",
     },
     {
-      title: "Pro",
-      price: "€199",
-      priceDescription: "par mois",
-      description: "Parfait pour les petites entreprises.",
-      features: ["Design personnalisé", "SEO optimisé", "Support 24/7"],
-      buttonText: "Choisir Pro",
+      title: "Site Web",
+      price: "1200€",
+      priceDescription: "à partir de",
+      description: "Création de site vitrine ou landing page moderne.",
+      features: ["Design responsive", "Développement React/Next.js", "Optimisation SEO de base", "Hébergement & Noms de domaine"],
+      buttonText: "Lancer mon projet",
     },
     {
-      title: "Enterprise",
+      title: "Projet Sur Mesure",
       price: "Sur devis",
-      description: "Solutions sur-mesure pour grands comptes.",
-      features: ["Consulting dédié", "Hébergement premium", "Formation"],
+      priceDescription: "Étude personnalisée",
+      description: "Pour les projets complexes nécessitant une expertise globale.",
+      features: ["Direction artistique complète", "Applications web complexes", "Animation 3D & Vidéo", "Suivi de projet dédié"],
       buttonText: "Contactez-nous",
     },
   ];
@@ -60,18 +62,15 @@ const ServicesPage = () => {
   return (
     <main className="mx-auto max-w-6xl px-4 pt-12 pb-20 md:pt-32 md:pb-20 text-slate-900">
 
-      {/* En-tête */}
       <TitreSimpleJSD title="Services" />
       <p className="-mt-8 text-center max-w-2xl mx-auto text-lg text-slate-600">
         Scrollez pour explorer nos services ou cliquez sur une carte pour en savoir plus.
       </p>
 
-      {/* Display Cards 3D */}
       <div className="flex justify-center">
         <DisplayCards />
       </div>
 
-      {/* Sections de Services */}
       <div id="design" className="scroll-mt-32">
         <Design />
       </div>
@@ -88,26 +87,26 @@ const ServicesPage = () => {
         <WebDesign />
       </div>
 
-      {/* --- SECTION PRICING CARDS --- */}
-      {/* J'ai réduit les marges (mt-8 et md:mt-0) pour remonter les cartes */}
-      <section className="grid h-[32rem] md:h-[40rem] w-full place-items-center overflow-visible mt-8 md:mt-0">
-        <div className="grid [grid-template-areas:'stack'] relative right-12 md:right-16 top-[2rem] md:top-[4rem] gap-6 md:grid-cols-3">
-          {pricingCards.map((card, index) => (
-            <PricingCard
-              key={index}
-              className="skew-y-[6deg]"
-              title={card.title}
-              price={card.price}
-              priceDescription={card.priceDescription}
-              description={card.description}
-              features={card.features}
-              buttonText={card.buttonText}
-            />
-          ))}
-        </div>
-      </section>
+      {/* --- SECTION PRICING CARDS AVEC ID --- */}
+      <div id="tarifs" className="scroll-mt-32 mt-16"> 
+        <section className="flex justify-center w-full overflow-visible">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+            {pricingCards.map((card, index) => (
+              <PricingCard
+                key={index}
+                className="skew-y-[6deg]"
+                title={card.title}
+                price={card.price}
+                priceDescription={card.priceDescription}
+                description={card.description}
+                features={card.features}
+                buttonText={card.buttonText}
+              />
+            ))}
+          </div>
+        </section>
+      </div>
 
-      {/* Galerie Clients */}
       <div className="-mt-6">
         <Gallery4
           title="Rejoignez nos clients satisfaits"
@@ -115,7 +114,6 @@ const ServicesPage = () => {
         />
       </div>
 
-      {/* Carousel Partenaires */}
       <div className="relative z-40 mt-16">
         <CarouselPartenaires />
       </div>

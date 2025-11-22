@@ -1,10 +1,11 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { cn } from "../lib/utils";        // Chemins relatifs corrects
-import { Button } from "./ui/button";     // Chemins relatifs corrects
+import { cn } from "../lib/utils";
+import { Button } from "./ui/button";
 import { Diamond } from "lucide-react";
 
-// --- ANIMATIONS D'ORIGINE ---
+// --- DÉFINITION DES VARIANTES (ANIMATIONS) ---
 const cardVariants = {
   initial: { scale: 1, y: 0 },
   hover: {
@@ -15,6 +16,7 @@ const cardVariants = {
   },
 };
 
+// C'est cette variable qui manquait ou était mal vue
 const imageVariants = {
   initial: { scale: 1, rotate: 0 },
   hover: {
@@ -33,6 +35,7 @@ const PricingCard = React.forwardRef((
     description,
     features,
     buttonText,
+    href = "/contact", // Lien par défaut vers contact
     imageSrc,
     imageAlt,
     isUnique = false,
@@ -43,22 +46,19 @@ const PricingCard = React.forwardRef((
   return (
     <motion.div
       ref={ref}
-      variants={cardVariants} // Utilisation des animations d'origine
+      variants={cardVariants}
       initial="initial"
       whileHover="hover"
       className={cn(
-        // --- STYLE ---
         "relative flex flex-col justify-between rounded-lg p-6 shadow-sm transition-shadow duration-300",
-        // Le Glassmorphism (Fond + Flou) que tu voulais garder :
-        "bg-white/70 backdrop-blur-md border border-white/40",
-        // Couleur de texte adaptée pour rester lisible sur le fond blanc
+        "bg-white/70 backdrop-blur-md border border-slate-200",
         "text-slate-800",
         className
       )}
-      {...props}>
+      {...props}
+    >
       
       <div className="flex flex-col space-y-4">
-        {/* Header avec image optionnelle */}
         <div className="flex justify-between items-start">
           <div>
             <h3 className="text-xl font-semibold">{title}</h3>
@@ -78,14 +78,13 @@ const PricingCard = React.forwardRef((
               width={80}
               height={80}
               className="select-none"
-              variants={imageVariants} />
+              variants={imageVariants} // Utilisé ici
+            />
           )}
         </div>
 
-        {/* Description */}
         <p className="text-slate-600">{description}</p>
 
-        {/* Liste des features */}
         {features && (
           <ul className="space-y-2 pt-4">
             {features.map((feature, index) => (
@@ -98,10 +97,12 @@ const PricingCard = React.forwardRef((
         )}
       </div>
 
-      {/* Bouton */}
       <div className="mt-6">
-        <Button className="w-full">{buttonText}</Button>
+        <Link to={href} className="w-full block">
+          <Button className="w-full">{buttonText}</Button>
+        </Link>
       </div>
+
     </motion.div>
   );
 });
