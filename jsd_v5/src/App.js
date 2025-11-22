@@ -14,6 +14,9 @@ import MobileNavBar from "./components/MobileNavBar";
 import MobileHeader from "./components/MobileHeader";
 import { CarouselPartenaires } from "./components/CarouselPartenaires";
 
+// --- IMPORT DE LA PAGE 404 (AJOUTÉ) ---
+import NotFound from "./pages/NotFound";
+
 // --- COMPOSANT INTERNE : SCROLL TO TOP ---
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -24,7 +27,6 @@ const ScrollToTop = () => {
 };
 
 // --- COMPOSANT INTERNE : SITE PROTECTION ---
-// Bloque le clic droit, le drag d'image et certains raccourcis
 const SiteProtection = () => {
   useEffect(() => {
     const handleContextMenu = (e) => e.preventDefault();
@@ -34,7 +36,6 @@ const SiteProtection = () => {
     };
 
     const handleKeyDown = (e) => {
-      // Bloquer F12 et Ctrl+Shift+I
       if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
         e.preventDefault();
       }
@@ -106,6 +107,9 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/work" element={<WorkPage />} />
           <Route path="/services" element={<Services />} />
+
+          {/* ROUTE 404 (AJOUTÉ) - Doit toujours être en dernier */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
 
@@ -115,8 +119,6 @@ function App() {
       </div>
 
       {/* FOOTER */}
-      {/* Mobile : z-20 (sous le flou z-30) + padding-bottom 24 (pour la navbar) */}
-      {/* Desktop : z-40 (sur le flou z-30) + bg-white (cache le flou) + pas de padding */}
       <div className="relative z-20 md:z-40 md:bg-white pb-24 md:pb-0">
           <Footer />
       </div>
