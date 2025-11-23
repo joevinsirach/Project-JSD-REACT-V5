@@ -9,12 +9,15 @@ import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import WorkPage from "./pages/Work";
 import Services from "./pages/Services";
+// --- IMPORT DE LA PAGE CV (AJOUTÉ) ---
+import CV from "./pages/CV"; 
+
 import GradualBlur from "./components/Animations/GradualBlur/GradualBlur";
 import MobileNavBar from "./components/MobileNavBar";
 import MobileHeader from "./components/MobileHeader";
 import { CarouselPartenaires } from "./components/CarouselPartenaires";
 
-// --- IMPORT DE LA PAGE 404 (AJOUTÉ) ---
+// --- IMPORT DE LA PAGE 404 ---
 import NotFound from "./pages/NotFound";
 
 // --- COMPOSANT INTERNE : SCROLL TO TOP ---
@@ -107,8 +110,11 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/work" element={<WorkPage />} />
           <Route path="/services" element={<Services />} />
+          
+          {/* ROUTE CV (AJOUTÉE) */}
+          <Route path="/cv" element={<CV />} />
 
-          {/* ROUTE 404 (AJOUTÉ) - Doit toujours être en dernier */}
+          {/* ROUTE 404 - Doit toujours être en dernier */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

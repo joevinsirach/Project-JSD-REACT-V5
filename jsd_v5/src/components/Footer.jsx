@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'; // <-- Import de Link pour la navigation interne propre
 import './Footer.css';
 
 const Footer = () => {
@@ -38,9 +39,9 @@ const Footer = () => {
 
   // Liens : NOIR 85%
   const linkStyle = isMobile ? {
-     color: 'rgba(0, 0, 0, 0.85)',
-     textDecoration: 'none',
-     fontWeight: '500'
+      color: 'rgba(0, 0, 0, 0.85)',
+      textDecoration: 'none',
+      fontWeight: '500'
   } : {};
 
   return (
@@ -58,10 +59,12 @@ const Footer = () => {
         <div className="footer-section">
           <h3 style={titleStyle}>Liens Rapides</h3>
           <ul>
-            <li><a href="/" style={linkStyle}>Accueil</a></li>
-            <li><a href="/services" style={linkStyle}>Services</a></li>
-            <li><a href="/services" style={linkStyle}>Tarifs</a></li>
-            <li><a href="/work" style={linkStyle}>Réalisations</a></li>
+            {/* J'ai remplacé <a> par <Link> pour éviter le rechargement complet de la page */}
+            <li><Link to="/" style={linkStyle}>Accueil</Link></li>
+            <li><Link to="/services" style={linkStyle}>Services</Link></li>
+            <li><Link to="/services#tarifs" style={linkStyle}>Tarifs</Link></li>
+            <li><Link to="/work" style={linkStyle}>Réalisations</Link></li>
+            <li><Link to="/cv" style={linkStyle}>CV</Link></li>
           </ul>
         </div>
         

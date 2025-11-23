@@ -52,7 +52,7 @@ const ServicesPage = () => {
     {
       title: "Projet Sur Mesure",
       price: "Sur devis",
-      priceDescription: "Étude personnalisée",
+      priceDescription: "Devis gratuit personnalisé",
       description: "Pour les projets complexes nécessitant une expertise globale.",
       features: ["Direction artistique complète", "Applications web complexes", "Animation 3D & Vidéo", "Suivi de projet dédié"],
       buttonText: "Contactez-nous",
