@@ -34,7 +34,7 @@ export default function CV() {
     {
       title: (
         <>
-          Now <br /> 2021
+          2025 <br /> 2021
         </>
       ),
       content: (
@@ -63,7 +63,7 @@ export default function CV() {
     {
       title: (
         <>
-          Now <br /> 2021
+          2025 <br /> 2021
         </>
       ),
       content: (
