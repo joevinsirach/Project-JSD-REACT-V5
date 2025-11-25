@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // <-- Import de Link pour la navigation interne propre
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
@@ -59,12 +59,13 @@ const Footer = () => {
         <div className="footer-section">
           <h3 style={titleStyle}>Liens Rapides</h3>
           <ul>
-            {/* J'ai remplacé <a> par <Link> pour éviter le rechargement complet de la page */}
             <li><Link to="/" style={linkStyle}>Accueil</Link></li>
             <li><Link to="/services" style={linkStyle}>Services</Link></li>
             <li><Link to="/services#tarifs" style={linkStyle}>Tarifs</Link></li>
             <li><Link to="/work" style={linkStyle}>Réalisations</Link></li>
             <li><Link to="/cv" style={linkStyle}>CV</Link></li>
+            {/* AJOUT DU LIEN DEMO */}
+            <li><Link to="/demo" style={linkStyle}>Présentation</Link></li>
           </ul>
         </div>
         
