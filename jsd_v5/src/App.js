@@ -9,8 +9,12 @@ import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import WorkPage from "./pages/Work";
 import Services from "./pages/Services";
-// --- IMPORT DE LA PAGE CV (AJOUTÉ) ---
+
+// --- IMPORT DE LA PAGE CV ---
 import CV from "./pages/CV"; 
+
+// --- IMPORT DE LA LANDING PAGE ---
+import Landing1 from "./pages/Landing1";
 
 import GradualBlur from "./components/Animations/GradualBlur/GradualBlur";
 import MobileNavBar from "./components/MobileNavBar";
@@ -58,79 +62,107 @@ const SiteProtection = () => {
   return null;
 };
 
-function App() {
+// --- COMPOSANT DE CONTENU (POUR GÉRER LA LOGIQUE D'AFFICHAGE) ---
+const AppContent = () => {
+  const location = useLocation();
+  
+  // Détection si on est sur la landing page
+  const isLandingPage = location.pathname === '/demo' || location.pathname === '/presentation';
+
   return (
-    <Router>
+    <>
       <ScrollToTop />
       <SiteProtection />
-      <DarkVeil hueShift={200} speed={1} noiseIntensity={0.01} />
-
-      {/* FLOU TOP */}
-      <GradualBlur
-        position="top"
-        target="page"
-        height="3.5rem"
-        strength={0.5}
-        opacity={0.9}
-        divCount={4}
-        curve="smooth"
-        animated={false}
-        zIndex={30}
-        style={{
-          backgroundImage: "linear-gradient(to bottom, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0) 100%)",
-        }}
-      />
-
-      {/* FLOU BOTTOM */}
-      <GradualBlur
-        position="bottom"
-        target="page"
-        height="3.5rem"
-        strength={0.25}
-        opacity={0.9}
-        divCount={4}
-        curve="smooth"
-        animated={false}
-        zIndex={30}
-        style={{
-          backgroundImage: "linear-gradient(to top, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0) 100%)",
-        }}
-      />
-
-      <MobileHeader />
       
-      <div className="hidden md:block relative z-50">
-        <Header theme="light" />
-      </div>
+      {/* --- ÉLÉMENTS MASQUÉS SUR LA LANDING PAGE --- */}
+      {!isLandingPage && (
+        <>
+          <DarkVeil hueShift={200} speed={1} noiseIntensity={0.01} />
 
-      {/* CONTENU PRINCIPAL */}
-      <div className="relative z-10 pb-32 md:pb-0">
+          {/* FLOU TOP */}
+          <GradualBlur
+            position="top"
+            target="page"
+            height="3.5rem"
+            strength={0.5}
+            opacity={0.9}
+            divCount={4}
+            curve="smooth"
+            animated={false}
+            zIndex={30}
+            style={{
+              backgroundImage: "linear-gradient(to bottom, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0) 100%)",
+            }}
+          />
+
+          {/* FLOU BOTTOM */}
+          <GradualBlur
+            position="bottom"
+            target="page"
+            height="3.5rem"
+            strength={0.25}
+            opacity={0.9}
+            divCount={4}
+            curve="smooth"
+            animated={false}
+            zIndex={30}
+            style={{
+              backgroundImage: "linear-gradient(to top, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0) 100%)",
+            }}
+          />
+
+          <MobileHeader />
+          
+          <div className="hidden md:block relative z-50">
+            <Header theme="light" />
+          </div>
+        </>
+      )}
+
+      {/* --- ROUTING ET PAGES --- */}
+      {/* Si on est sur la landing page, on enlève le padding et le z-index standard */}
+      <div className={!isLandingPage ? "relative z-10 pb-32 md:pb-0" : ""}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/work" element={<WorkPage />} />
           <Route path="/services" element={<Services />} />
           
-          {/* ROUTE CV (AJOUTÉE) */}
+          {/* ROUTE CV */}
           <Route path="/cv" element={<CV />} />
 
-          {/* ROUTE 404 - Doit toujours être en dernier */}
+          {/* ROUTES LANDING PAGE (DEMO) */}
+          <Route path="/demo" element={<Landing1 />} />
+          <Route path="/presentation" element={<Landing1 />} />
+
+          {/* ROUTE 404 - TOUJOURS EN DERNIER */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
 
-      {/* CAROUSEL */}
-      <div className="relative z-40">
-          <CarouselPartenaires />
-      </div>
+      {/* --- FOOTER ET CAROUSEL (MASQUÉS SUR LANDING PAGE) --- */}
+      {!isLandingPage && (
+        <>
+          <div className="relative z-40">
+              <CarouselPartenaires />
+          </div>
 
-      {/* FOOTER */}
-      <div className="relative z-20 md:z-40 md:bg-white pb-24 md:pb-0">
-          <Footer />
-      </div>
+          <div className="relative z-20 md:z-40 md:bg-white pb-24 md:pb-0">
+              <Footer />
+          </div>
 
-      <MobileNavBar />
-      
+          <MobileNavBar />
+        </>
+      )}
+    </>
+  );
+};
+
+// --- COMPOSANT RACINE ---
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }
