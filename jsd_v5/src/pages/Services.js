@@ -11,7 +11,7 @@ import { StandEvent } from "../components/StandEvenementiel";
 import { WebDesign } from "../components/Web";
 
 import { PricingCard } from "../components/pricing-card-1";
-import { CarouselPartenaires } from "../components/CarouselPartenaires";
+// import { CarouselPartenaires } from "../components/CarouselPartenaires"; // SUPPRIMÉ CAR DÉJÀ DANS APP.JS
 
 const ServicesPage = () => {
   const { hash } = useLocation();
@@ -114,9 +114,7 @@ const ServicesPage = () => {
         />
       </div>
 
-      <div className="relative z-40 mt-16">
-        <CarouselPartenaires />
-      </div>
+      {/* LE CAROUSEL A ÉTÉ SUPPRIMÉ D'ICI POUR ÉVITER LE DOUBLON AVEC APP.JS */}
 
     </main>
   );

@@ -143,7 +143,7 @@ const AppContent = () => {
       {/* --- FOOTER ET CAROUSEL (MASQUÉS SUR LANDING PAGE) --- */}
       {!isLandingPage && (
         <>
-          <div className="relative z-40">
+          <div className="relative z-20">
               <CarouselPartenaires />
           </div>
 
